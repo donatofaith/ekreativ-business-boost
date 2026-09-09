@@ -1,0 +1,580 @@
+/* =====================================================
+   MOTION UPGRADES
+   Hero orbit motion + livelier onboarding interactions
+===================================================== */
+
+/* -----------------------------------------------------
+   HERO: make the circular tracks visibly roll
+----------------------------------------------------- */
+
+.hero-ring {
+  border: 0 !important;
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(100, 181, 255, 0.08) 0deg 24deg,
+      rgba(100, 181, 255, 0.6) 24deg 54deg,
+      transparent 54deg 88deg,
+      rgba(100, 181, 255, 0.24) 88deg 132deg,
+      transparent 132deg 181deg,
+      rgba(100, 181, 255, 0.48) 181deg 225deg,
+      transparent 225deg 278deg,
+      rgba(100, 181, 255, 0.18) 278deg 326deg,
+      transparent 326deg 360deg
+    ) !important;
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.7px),
+    #000 calc(100% - 1.7px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.7px),
+    #000 calc(100% - 1.7px)
+  );
+  filter: drop-shadow(0 0 5px rgba(68, 154, 255, 0.2));
+  opacity: 0.72;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.hero-ring-one {
+  animation: heroOrbitRoll 11s linear infinite !important;
+}
+
+.hero-ring-two {
+  background:
+    conic-gradient(
+      from 120deg,
+      transparent 0deg 38deg,
+      rgba(85, 172, 255, 0.5) 38deg 70deg,
+      transparent 70deg 128deg,
+      rgba(85, 172, 255, 0.18) 128deg 188deg,
+      transparent 188deg 235deg,
+      rgba(85, 172, 255, 0.48) 235deg 290deg,
+      transparent 290deg 360deg
+    ) !important;
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.4px),
+    #000 calc(100% - 1.4px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.4px),
+    #000 calc(100% - 1.4px)
+  );
+  animation: heroOrbitRollReverse 8s linear infinite !important;
+  opacity: 0.56;
+}
+
+.hero-ring-three {
+  background:
+    conic-gradient(
+      from 235deg,
+      rgba(82, 163, 255, 0.12) 0deg 68deg,
+      transparent 68deg 125deg,
+      rgba(82, 163, 255, 0.3) 125deg 190deg,
+      transparent 190deg 270deg,
+      rgba(82, 163, 255, 0.17) 270deg 330deg,
+      transparent 330deg 360deg
+    ) !important;
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.2px),
+    #000 calc(100% - 1.2px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.2px),
+    #000 calc(100% - 1.2px)
+  );
+  animation: heroOrbitRoll 18s linear infinite !important;
+  opacity: 0.4;
+}
+
+@keyframes heroOrbitRoll {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes heroOrbitRollReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Gentle motion inside the hero mockup */
+
+.visual-shell {
+  animation: visualShellFloat 7s ease-in-out infinite;
+}
+
+.main-growth-card {
+  animation: growthCardFloat 5.5s ease-in-out infinite;
+}
+
+.phone-card {
+  animation: phoneCardFloat 6s ease-in-out infinite;
+}
+
+.chart span {
+  transform-origin: bottom;
+  animation: chartBreath 2.8s ease-in-out infinite;
+}
+
+.chart span:nth-child(2) { animation-delay: 0.1s; }
+.chart span:nth-child(3) { animation-delay: 0.2s; }
+.chart span:nth-child(4) { animation-delay: 0.3s; }
+.chart span:nth-child(5) { animation-delay: 0.4s; }
+.chart span:nth-child(6) { animation-delay: 0.5s; }
+
+@keyframes visualShellFloat {
+  0%, 100% {
+    transform: rotate(2deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2deg) translateY(-7px);
+  }
+}
+
+@keyframes growthCardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes phoneCardFloat {
+  0%, 100% { transform: rotate(7deg) translateY(0); }
+  50% { transform: rotate(7deg) translateY(-8px); }
+}
+
+@keyframes chartBreath {
+  0%, 100% { transform: scaleY(0.92); opacity: 0.88; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+/* -----------------------------------------------------
+   ONBOARDING: moving atmosphere
+----------------------------------------------------- */
+
+.onboarding-page:not(.submission-screen):not(.success-screen) {
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(8, 117, 245, 0.085), transparent 25%),
+    radial-gradient(circle at 92% 74%, rgba(45, 163, 255, 0.075), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #f3f7fc 100%);
+}
+
+.onboarding-page:not(.submission-screen):not(.success-screen)::before,
+.onboarding-page:not(.submission-screen):not(.success-screen)::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(10px);
+  opacity: 0.45;
+}
+
+.onboarding-page:not(.submission-screen):not(.success-screen)::before {
+  left: -250px;
+  top: 22%;
+  border: 1px solid rgba(8, 117, 245, 0.12);
+  animation: onboardingAmbientOne 13s ease-in-out infinite;
+}
+
+.onboarding-page:not(.submission-screen):not(.success-screen)::after {
+  right: -270px;
+  bottom: 8%;
+  border: 1px dashed rgba(8, 117, 245, 0.14);
+  animation: onboardingAmbientTwo 16s linear infinite;
+}
+
+@keyframes onboardingAmbientOne {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(0.94); }
+  50% { transform: translate3d(30px, -24px, 0) scale(1.08); }
+}
+
+@keyframes onboardingAmbientTwo {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* -----------------------------------------------------
+   ONBOARDING HEADER
+----------------------------------------------------- */
+
+.onboarding-header {
+  overflow: hidden;
+}
+
+.onboarding-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -35%;
+  width: 24%;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(73, 158, 255, 0.09),
+    transparent
+  );
+  transform: skewX(-18deg);
+  animation: onboardingHeaderSweep 8s ease-in-out infinite;
+}
+
+.onboarding-brand .brand-mark {
+  animation: onboardingBrandPulse 3.2s ease-in-out infinite;
+}
+
+@keyframes onboardingHeaderSweep {
+  0%, 58% { left: -35%; opacity: 0; }
+  66% { opacity: 1; }
+  90%, 100% { left: 125%; opacity: 0; }
+}
+
+@keyframes onboardingBrandPulse {
+  0%, 100% {
+    box-shadow: 0 8px 25px rgba(8, 117, 245, 0.28);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(8, 117, 245, 0.55);
+  }
+}
+
+/* -----------------------------------------------------
+   SIDEBAR: subtle live network feel
+----------------------------------------------------- */
+
+.onboarding-sidebar::before,
+.onboarding-sidebar::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.onboarding-sidebar::before {
+  width: 230px;
+  height: 230px;
+  right: -118px;
+  top: 115px;
+  border: 1px dashed rgba(105, 181, 255, 0.15);
+  animation: sidebarOrbit 16s linear infinite;
+}
+
+.onboarding-sidebar::after {
+  width: 150px;
+  height: 150px;
+  right: -72px;
+  top: 155px;
+  border: 1px solid rgba(105, 181, 255, 0.12);
+  animation: sidebarOrbitReverse 10s linear infinite;
+}
+
+@keyframes sidebarOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sidebarOrbitReverse {
+  to { transform: rotate(-360deg); }
+}
+
+.step-item.active > span {
+  animation: activeStepPulse 2.1s ease-in-out infinite;
+}
+
+.step-item.active::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 0 0 rgba(255, 213, 31, 0.35);
+  animation: activeStepDot 1.8s ease-out infinite;
+}
+
+@keyframes activeStepPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 5px rgba(255, 213, 31, 0.07);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 9px rgba(255, 213, 31, 0.03);
+  }
+}
+
+@keyframes activeStepDot {
+  0% { box-shadow: 0 0 0 0 rgba(255, 213, 31, 0.36); }
+  70% { box-shadow: 0 0 0 7px rgba(255, 213, 31, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 213, 31, 0); }
+}
+
+/* -----------------------------------------------------
+   PROGRESS: continuous shimmer
+----------------------------------------------------- */
+
+.progress-track {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-track > span {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-track > span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 46%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+  transform: translateX(-150%);
+  animation: progressShimmer 2.3s ease-in-out infinite;
+}
+
+@keyframes progressShimmer {
+  0%, 18% { transform: translateX(-150%); }
+  72%, 100% { transform: translateX(320%); }
+}
+
+/* -----------------------------------------------------
+   FORM PANEL: scanning light + stronger entry motion
+----------------------------------------------------- */
+
+.form-panel {
+  position: relative;
+  isolation: isolate;
+}
+
+.form-panel::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  top: -35%;
+  height: 150px;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(8, 117, 245, 0.035),
+    rgba(66, 168, 255, 0.075),
+    rgba(8, 117, 245, 0.025),
+    transparent
+  );
+  animation: formScanner 8.5s ease-in-out infinite;
+}
+
+.form-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes formScanner {
+  0%, 28% {
+    top: -35%;
+    opacity: 0;
+  }
+  34% {
+    opacity: 1;
+  }
+  78% {
+    top: 88%;
+    opacity: 0.75;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+.form-heading > span {
+  position: relative;
+  display: inline-block;
+}
+
+.form-heading > span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 26px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--blue);
+  transform-origin: left;
+  animation: headingAccent 2.8s ease-in-out infinite;
+}
+
+@keyframes headingAccent {
+  0%, 100% { transform: scaleX(0.55); opacity: 0.5; }
+  50% { transform: scaleX(1.45); opacity: 1; }
+}
+
+.step-enter-next,
+.step-enter-back {
+  animation-duration: 0.62s !important;
+}
+
+/* -----------------------------------------------------
+   FORM CONTROLS + CARDS
+----------------------------------------------------- */
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  box-shadow:
+    0 0 0 4px rgba(8, 117, 245, 0.075),
+    0 10px 26px rgba(8, 117, 245, 0.07) !important;
+}
+
+.goal-card.selected {
+  box-shadow: 0 12px 30px rgba(8, 117, 245, 0.08);
+}
+
+.goal-card.selected > span {
+  animation: selectedGoalPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes selectedGoalPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(8, 117, 245, 0.18); }
+  50% { box-shadow: 0 0 0 7px rgba(8, 117, 245, 0); }
+}
+
+.upload-dropzone {
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-dropzone::after {
+  content: "";
+  position: absolute;
+  left: -120%;
+  top: 0;
+  width: 70%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(77, 166, 255, 0.08),
+    transparent
+  );
+  animation: uploadSweep 5.5s ease-in-out infinite;
+}
+
+.upload-icon {
+  animation: uploadIconFloat 3.2s ease-in-out infinite;
+}
+
+@keyframes uploadSweep {
+  0%, 55% { left: -120%; }
+  100% { left: 155%; }
+}
+
+@keyframes uploadIconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.review-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  border-color: #c9ddf7;
+  box-shadow: 0 14px 32px rgba(18, 61, 111, 0.07);
+}
+
+.continue-button span {
+  display: inline-block;
+  animation: continueArrow 1.8s ease-in-out infinite;
+}
+
+@keyframes continueArrow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+/* -----------------------------------------------------
+   MOBILE: keep motion useful, not distracting
+----------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .onboarding-page:not(.submission-screen):not(.success-screen)::before,
+  .onboarding-page:not(.submission-screen):not(.success-screen)::after {
+    opacity: 0.28;
+  }
+
+  .form-panel::before {
+    animation-duration: 10s;
+  }
+}
+
+@media (max-width: 640px) {
+  .visual-shell {
+    animation-duration: 8.5s;
+  }
+
+  .hero-ring-one { animation-duration: 14s !important; }
+  .hero-ring-two { animation-duration: 10s !important; }
+  .hero-ring-three { animation-duration: 20s !important; }
+
+  .onboarding-header::after {
+    animation-duration: 10s;
+  }
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .hero-ring,
+  .visual-shell,
+  .main-growth-card,
+  .phone-card,
+  .chart span,
+  .onboarding-page::before,
+  .onboarding-page::after,
+  .onboarding-header::after,
+  .onboarding-brand .brand-mark,
+  .onboarding-sidebar::before,
+  .onboarding-sidebar::after,
+  .step-item.active > span,
+  .step-item.active::after,
+  .progress-track > span::after,
+  .form-panel::before,
+  .form-heading > span::after,
+  .goal-card.selected > span,
+  .upload-dropzone::after,
+  .upload-icon,
+  .continue-button span {
+    animation: none !important;
+  }
+}
