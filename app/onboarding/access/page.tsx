@@ -89,28 +89,28 @@ export default function OnboardingAccessPage() {
             letterSpacing: "2px",
           }}
         >
-          CLIENT ONBOARDING
+          PRIVATE CLIENT ONBOARDING
         </span>
 
         <h1 style={{ fontSize: "clamp(30px, 7vw, 42px)", lineHeight: 1.05, marginBottom: "14px" }}>
-          Enter your access code.
+          Enter your one-time access code.
         </h1>
 
         <p style={{ marginBottom: "26px", color: "rgba(255,255,255,.68)", lineHeight: 1.7 }}>
-          This onboarding form is reserved for confirmed Business Boost clients. Use the code sent to you after payment.
+          This form is reserved for confirmed Business Boost clients. Your code can only be activated once, so use it on the device you plan to complete the onboarding with.
         </p>
 
         <form onSubmit={handleSubmit}>
           <label htmlFor="access-code" style={{ display: "block", marginBottom: "9px", fontSize: "13px", fontWeight: 800 }}>
-            Access code
+            Client access code
           </label>
 
           <input
             id="access-code"
-            type="password"
+            type="text"
             value={code}
-            onChange={(event) => setCode(event.target.value)}
-            placeholder="Enter client access code"
+            onChange={(event) => setCode(event.target.value.toUpperCase())}
+            placeholder="BOOST-XXXX-XXXX"
             autoComplete="one-time-code"
             required
             style={{
@@ -122,6 +122,8 @@ export default function OnboardingAccessPage() {
               outline: "none",
               background: "rgba(255,255,255,.08)",
               color: "white",
+              letterSpacing: ".8px",
+              textTransform: "uppercase",
             }}
           />
 
@@ -144,12 +146,12 @@ export default function OnboardingAccessPage() {
               opacity: loading ? 0.7 : 1,
             }}
           >
-            {loading ? "Checking access..." : "Continue to Onboarding →"}
+            {loading ? "Checking access..." : "Unlock Onboarding →"}
           </button>
         </form>
 
-        <p style={{ marginTop: "18px", textAlign: "center", color: "rgba(255,255,255,.48)", fontSize: "12px" }}>
-          Need access? Contact eKreativ Solutions through the payment conversation.
+        <p style={{ marginTop: "18px", textAlign: "center", color: "rgba(255,255,255,.48)", fontSize: "12px", lineHeight: 1.6 }}>
+          Need a new code? Contact eKreativ Solutions through the payment conversation.
         </p>
       </section>
     </main>
