@@ -30,31 +30,39 @@ const packageItems = [
 const steps = [
   {
     number: "01",
-    title: "Tell us about your business",
+    title: "Message us on WhatsApp",
     description:
-      "Complete a short guided onboarding so we understand your business, audience and goals.",
+      "Start a quick conversation with us so we can confirm the package and answer any questions.",
   },
   {
     number: "02",
-    title: "Share your brand materials",
+    title: "Confirm your payment",
     description:
-      "Upload your logo, photos, product information and any existing brand assets.",
+      "Payment is handled directly with our team in WhatsApp before your project onboarding begins.",
   },
   {
     number: "03",
-    title: "We create your content",
+    title: "Receive your onboarding link",
     description:
-      "Your information is transformed into strategic, professionally designed marketing content.",
+      "Once payment is confirmed, we send you a private onboarding link to share your business details and brand materials.",
   },
   {
     number: "04",
-    title: "Receive your package",
+    title: "We create and deliver",
     description:
-      "Your complete Business Boost package is delivered within 72 hours after payment and materials are received.",
+      "Your complete Business Boost package is created and delivered within 72 hours after your onboarding materials are received.",
   },
 ];
 
 export default function Home() {
+  const whatsappNumber = process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP ?? "";
+  const whatsappMessage = encodeURIComponent(
+    "Hi eKreativ Solutions, I'm interested in the AI Business Boost Plan and I'd like to get started."
+  );
+  const whatsappUrl = whatsappNumber
+    ? `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+    : "#";
+
   return (
     <main>
       <ScrollReveal />
@@ -77,7 +85,12 @@ export default function Home() {
             <a href="#about">Why Business Boost</a>
           </nav>
 
-          <a href="/onboarding" className="header-cta">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="header-cta"
+          >
             Start Your Project
           </a>
         </div>
@@ -115,7 +128,12 @@ export default function Home() {
             </p>
 
             <div className="hero-actions">
-              <a href="/onboarding" className="primary-button">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="primary-button"
+              >
                 Start My Business Boost
                 <span aria-hidden="true">→</span>
               </a>
@@ -248,7 +266,11 @@ export default function Home() {
               </div>
             </div>
 
-            <a href="/onboarding">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Get Started
               <span>→</span>
             </a>
@@ -263,7 +285,7 @@ export default function Home() {
             <span className="section-label">HOW IT WORKS</span>
 
             <h2>
-              A simple process from your idea to finished content.
+              A simple process from first message to finished content.
             </h2>
           </div>
 
@@ -340,8 +362,12 @@ export default function Home() {
               <li>72-hour delivery</li>
             </ul>
 
-            <a href="/onboarding">
-              Start My Project
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Message Us to Start
               <span>→</span>
             </a>
           </div>
@@ -364,13 +390,17 @@ export default function Home() {
               </h2>
 
               <p>
-                Tell us about your business and we&apos;ll use your answers to
-                create a package tailored to your goals.
+                Message us on WhatsApp to confirm your package and payment.
+                Once confirmed, we&apos;ll send your private onboarding link.
               </p>
             </div>
 
-            <a href="/onboarding">
-              Start Your Onboarding
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Message Us on WhatsApp
               <span>→</span>
             </a>
           </div>
