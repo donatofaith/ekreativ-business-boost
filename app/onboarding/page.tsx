@@ -404,8 +404,10 @@ export default function OnboardingPage() {
         }
       );
 
-      allFiles.forEach((file) => {
-        body.append("files", file);
+      Object.entries(uploads).forEach(([group, files]) => {
+        files.forEach((file) => {
+          body.append(`files_${group}`, file);
+        });
       });
 
       const response = await fetch(
