@@ -86,7 +86,7 @@ function detailRow(label: string, value: string | string[]) {
   `;
 }
 
-async function accessSignature(secret: string) {
+async function hmac(value: string, secret: string) {
   const key = await crypto.subtle.importKey(
     "raw",
     new TextEncoder().encode(secret),
@@ -98,7 +98,7 @@ async function accessSignature(secret: string) {
   const signature = await crypto.subtle.sign(
     "HMAC",
     key,
-    new TextEncoder().encode("ekreativ-onboarding-access"),
+    new TextEncoder().encode(value),
   );
 
   return Array.from(new Uint8Array(signature))
@@ -110,9 +110,25 @@ async function hasValidAccess(request: NextRequest) {
   const accessCode = process.env.ONBOARDING_ACCESS_CODE?.trim();
   if (!accessCode) return false;
 
-  const expectedSignature = await accessSignature(accessCode);
   const cookieValue = request.cookies.get("ekreativ_onboarding_access")?.value;
-  return cookieValue === expectedSignature;
+  if (!cookieValue) return false;
+
+  const parts = cookieValue.split(".");
+  if (parts.length !== 2) return false;
+
+  const [expiresAtRaw, signature] = parts;
+  const expiresAt = Number(expiresAtRaw);
+
+  if (!Number.isFinite(expiresAt) || expiresAt < Date.now()) {
+    return false;
+  }
+
+  const expectedSignature = await hmac(
+    `ekreativ-onboarding-access.${expiresAtRaw}`,
+    accessCode,
+  );
+
+  return signature === expectedSignature;
 }
 
 export async function POST(request: NextRequest) {
