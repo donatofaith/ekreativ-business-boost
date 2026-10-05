@@ -161,7 +161,7 @@ export default function Home() {
               </div>
 
               <div>
-                <strong>₦50K</strong>
+                <strong>₦100K</strong>
                 <span>Complete Package</span>
               </div>
             </div>
@@ -222,7 +222,7 @@ export default function Home() {
 
             <div className="floating-badge">
               <span>LIMITED OFFER</span>
-              <strong>₦50,000</strong>
+              <strong>₦100,000</strong>
             </div>
           </div>
         </div>
