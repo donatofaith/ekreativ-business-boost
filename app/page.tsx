@@ -3,27 +3,33 @@ import ScrollReveal from "@/components/ScrollReveal";
 const packageItems = [
   {
     number: "01",
-    title: "AI-Powered Promotional Video",
+    title: "60s Promotional Video",
     description:
-      "A premium promotional video built around your business, offer and target audience.",
-  },
-  {
-    number: "05",
-    title: "Social Media Designs",
-    description:
-      "Five professional branded graphics created to promote your products, services or offers.",
+      "A focused 60-second promotional video built around your business, offer and target audience.",
   },
   {
     number: "01",
-    title: "WhatsApp Status Ad",
+    title: "Landing Page",
     description:
-      "A focused promotional flyer designed specifically for WhatsApp visibility and enquiries.",
+      "A conversion-focused landing page for one product or service, designed to help turn visitors into enquiries.",
   },
   {
-    number: "03",
+    number: "01",
+    title: "Service Flyer",
+    description:
+      "A professional flyer created to clearly present and promote your service or offer.",
+  },
+  {
+    number: "04",
+    title: "Social Media Designs",
+    description:
+      "Four professional branded graphics created to promote your products, services or offers.",
+  },
+  {
+    number: "02",
     title: "Marketing Copies",
     description:
-      "Three persuasive captions or promotional copies tailored to your business goals.",
+      "Two persuasive captions or promotional copies tailored to your business goals.",
   },
 ];
 
@@ -122,9 +128,9 @@ export default function Home() {
             </h1>
 
             <p className="hero-description">
-              Get professionally created AI-powered marketing content designed
-              to improve your visibility, attract more customers and help your
-              business sell better online.
+              Get professionally created marketing assets designed to improve
+              your visibility, attract more customers and help your business
+              sell better online.
             </p>
 
             <div className="hero-actions">
@@ -150,7 +156,7 @@ export default function Home() {
               </div>
 
               <div>
-                <strong>10</strong>
+                <strong>9</strong>
                 <span>Marketing Assets</span>
               </div>
 
@@ -193,12 +199,12 @@ export default function Home() {
 
                 <div className="mini-card mini-card-left">
                   <span>CONTENT</span>
-                  <strong>5 Designs</strong>
+                  <strong>4 Designs</strong>
                 </div>
 
                 <div className="mini-card mini-card-right">
                   <span>VIDEO</span>
-                  <strong>AI Powered</strong>
+                  <strong>60 Seconds</strong>
                 </div>
 
                 <div className="phone-card">
@@ -236,8 +242,8 @@ export default function Home() {
             </div>
 
             <p>
-              One focused package combining visual content, promotional
-              materials and marketing copy for your business.
+              One focused package combining video, a landing page, design
+              assets and marketing copy for your business.
             </p>
           </div>
 
@@ -355,10 +361,11 @@ export default function Home() {
             </p>
 
             <ul>
-              <li>AI promotional video</li>
-              <li>5 social media graphics</li>
-              <li>WhatsApp status ad</li>
-              <li>3 marketing copies</li>
+              <li>60s promotional video</li>
+              <li>1 landing page</li>
+              <li>1 service flyer</li>
+              <li>4 social media designs</li>
+              <li>2 marketing copies</li>
               <li>72-hour delivery</li>
             </ul>
 
