@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import OfferContentSync from "@/components/OfferContentSync";
 
 export const metadata: Metadata = {
   title: "Project Onboarding | eKreativ Solutions",
@@ -20,5 +21,10 @@ export default function OnboardingLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <>
+      <OfferContentSync />
+      {children}
+    </>
+  );
 }
