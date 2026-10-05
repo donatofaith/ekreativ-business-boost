@@ -119,18 +119,19 @@ export default function Home() {
           <div className="hero-content">
             <div className="eyebrow">
               <span></span>
-              AI BUSINESS GROWTH PACKAGE
+              AI BUSINESS BOOST PLAN
             </div>
 
             <h1>
-              Turn your business into a
-              <span> stronger digital brand.</span>
+              Your business doesn&apos;t need more ideas.
+              <span> It needs better marketing.</span>
             </h1>
 
             <p className="hero-description">
-              Get professionally created marketing assets designed to improve
-              your visibility, attract more customers and help your business
-              sell better online.
+              You already have something worth selling. eKreativ helps you
+              package it properly with the video, landing page, designs and
+              marketing copy you need to attract attention and turn interest
+              into enquiries — delivered within 72 hours.
             </p>
 
             <div className="hero-actions">
