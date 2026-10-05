@@ -8,13 +8,13 @@ const packageItems = [
       "A focused 60-second promotional video built around your business, offer and target audience.",
   },
   {
-    number: "01",
+    number: "02",
     title: "Landing Page",
     description:
       "A conversion-focused landing page for one product or service, designed to help turn visitors into enquiries.",
   },
   {
-    number: "01",
+    number: "03",
     title: "Service Flyer",
     description:
       "A professional flyer created to clearly present and promote your service or offer.",
@@ -26,7 +26,7 @@ const packageItems = [
       "Four professional branded graphics created to promote your products, services or offers.",
   },
   {
-    number: "02",
+    number: "05",
     title: "Marketing Copies",
     description:
       "Two persuasive captions or promotional copies tailored to your business goals.",
@@ -353,7 +353,7 @@ export default function Home() {
 
             <div className="price">
               <small>₦</small>
-              <strong>50,000</strong>
+              <strong>100,000</strong>
             </div>
 
             <p>
