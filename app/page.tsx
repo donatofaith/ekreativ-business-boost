@@ -128,10 +128,8 @@ export default function Home() {
             </h1>
 
             <p className="hero-description">
-              You already have something worth selling. eKreativ helps you
-              package it properly with the video, landing page, designs and
-              marketing copy you need to attract attention and turn interest
-              into enquiries — delivered within 72 hours.
+              We create the marketing assets your business needs to attract
+              attention and turn interest into enquiries.
             </p>
 
             <div className="hero-actions">
