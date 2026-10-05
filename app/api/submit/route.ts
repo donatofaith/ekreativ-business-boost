@@ -65,15 +65,17 @@ function fileExtension(name: string) {
 }
 
 function isAllowedFile(file: File) {
-  const extensionAllowed = ALLOWED_EXTENSIONS.has(fileExtension(file.name));
-  const mimeAllowed = !file.type || ALLOWED_MIME_TYPES.has(file.type);
-  return extensionAllowed && mimeAllowed;
+  return (
+    ALLOWED_EXTENSIONS.has(fileExtension(file.name)) &&
+    (!file.type || ALLOWED_MIME_TYPES.has(file.type))
+  );
 }
 
 function formatValue(value: string | string[]) {
   if (Array.isArray(value)) {
     return value.length ? value.join(", ") : "Not provided";
   }
+
   return value?.trim() ? value : "Not provided";
 }
 
@@ -113,15 +115,11 @@ async function hasValidAccess(request: NextRequest) {
   const cookieValue = request.cookies.get("ekreativ_onboarding_access")?.value;
   if (!cookieValue) return false;
 
-  const parts = cookieValue.split(".");
-  if (parts.length !== 2) return false;
+  const [expiresAtRaw, signature, ...rest] = cookieValue.split(".");
+  if (!expiresAtRaw || !signature || rest.length) return false;
 
-  const [expiresAtRaw, signature] = parts;
   const expiresAt = Number(expiresAtRaw);
-
-  if (!Number.isFinite(expiresAt) || expiresAt < Date.now()) {
-    return false;
-  }
+  if (!Number.isFinite(expiresAt) || expiresAt < Date.now()) return false;
 
   const expectedSignature = await hmac(
     `ekreativ-onboarding-access.${expiresAtRaw}`,
@@ -135,7 +133,10 @@ export async function POST(request: NextRequest) {
   try {
     if (!(await hasValidAccess(request))) {
       return NextResponse.json(
-        { success: false, message: "Your onboarding session is not authorized or has expired." },
+        {
+          success: false,
+          message: "Your onboarding session is not authorized or has expired.",
+        },
         { status: 401 },
       );
     }
@@ -157,6 +158,10 @@ export async function POST(request: NextRequest) {
       mainGoals = [];
     }
 
+    // Existing database column names are kept for backward compatibility.
+    // design_5 now stores the Service Flyer brief.
+    // whatsapp_ad_* now store Landing Page details.
+    // copy_3 is no longer used by the new offer.
     const submission = {
       business_name: safeText(formData.get("businessName")),
       business_description: safeText(formData.get("businessDescription")),
@@ -192,7 +197,7 @@ export async function POST(request: NextRequest) {
       whatsapp_ad_action: safeText(formData.get("whatsappAdAction")),
       copy_1: safeText(formData.get("copy1")),
       copy_2: safeText(formData.get("copy2")),
-      copy_3: safeText(formData.get("copy3")),
+      copy_3: "",
       exclusions: safeText(formData.get("exclusions")),
       extra_notes: safeText(formData.get("extraNotes")),
     };
@@ -223,7 +228,6 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Backward compatibility with any older form version still posting "files".
     for (const item of formData.getAll("files")) {
       if (item instanceof File && item.size > 0) {
         groupedFiles.push({ group: "references", file: item });
@@ -290,8 +294,7 @@ export async function POST(request: NextRequest) {
         .toLowerCase();
 
       const storagePath = `${submissionId}/${group}/${crypto.randomUUID()}-${cleanName}`;
-      const arrayBuffer = await file.arrayBuffer();
-      const buffer = Buffer.from(arrayBuffer);
+      const buffer = Buffer.from(await file.arrayBuffer());
 
       const { error: uploadError } = await supabaseAdmin.storage
         .from("business-boost-assets")
@@ -311,7 +314,9 @@ export async function POST(request: NextRequest) {
           .createSignedUrl(storagePath, SIGNED_URL_SECONDS),
         supabaseAdmin.storage
           .from("business-boost-assets")
-          .createSignedUrl(storagePath, SIGNED_URL_SECONDS, { download: file.name }),
+          .createSignedUrl(storagePath, SIGNED_URL_SECONDS, {
+            download: file.name,
+          }),
       ]);
 
       uploadedFiles.push({
@@ -377,7 +382,7 @@ export async function POST(request: NextRequest) {
             ],
           },
           {
-            title: "Promotional Video",
+            title: "60s Promotional Video",
             rows: [
               ["Video Focus", submission.video_focus],
               ["Key Message", submission.key_message],
@@ -396,29 +401,31 @@ export async function POST(request: NextRequest) {
             ],
           },
           {
-            title: "Five Social Media Designs",
+            title: "Landing Page",
             rows: [
-              ["Design 1", submission.design_1],
-              ["Design 2", submission.design_2],
-              ["Design 3", submission.design_3],
-              ["Design 4", submission.design_4],
-              ["Design 5", submission.design_5],
+              ["Product / Service to Promote", submission.whatsapp_ad_focus],
+              ["Key Information to Include", submission.whatsapp_ad_info],
+              ["Landing Page Call-to-Action", submission.whatsapp_ad_action],
             ],
           },
           {
-            title: "WhatsApp Status Ad",
+            title: "4 Social Media Designs",
             rows: [
-              ["What the Flyer Should Promote", submission.whatsapp_ad_focus],
-              ["Information That Must Appear", submission.whatsapp_ad_info],
-              ["Action People Should Take", submission.whatsapp_ad_action],
+              ["Social Design 1", submission.design_1],
+              ["Social Design 2", submission.design_2],
+              ["Social Design 3", submission.design_3],
+              ["Social Design 4", submission.design_4],
             ],
           },
           {
-            title: "Marketing Copies & Final Notes",
+            title: "Service Flyer",
+            rows: [["Service Flyer Brief", submission.design_5]],
+          },
+          {
+            title: "2 Marketing Copies & Final Notes",
             rows: [
-              ["Copy 1", submission.copy_1],
-              ["Copy 2", submission.copy_2],
-              ["Copy 3", submission.copy_3],
+              ["Marketing Copy 1", submission.copy_1],
+              ["Marketing Copy 2", submission.copy_2],
               ["Do Not Include", submission.exclusions],
               ["Extra Notes", submission.extra_notes],
             ],
@@ -432,7 +439,11 @@ export async function POST(request: NextRequest) {
                 <h3 style="margin:0 0 10px;color:#061b40;font-size:18px;">${escapeHtml(section.title)}</h3>
                 <table role="presentation" style="width:100%;border-collapse:collapse;border:1px solid #e8edf4;border-radius:10px;overflow:hidden;">
                   <tbody>
-                    ${section.rows.map(([label, value]) => detailRow(label as string, value as string | string[])).join("")}
+                    ${section.rows
+                      .map(([label, value]) =>
+                        detailRow(label as string, value as string | string[]),
+                      )
+                      .join("")}
                   </tbody>
                 </table>
               </div>
@@ -481,7 +492,7 @@ export async function POST(request: NextRequest) {
               <div style="background:#061b40;padding:28px;border-radius:16px 16px 0 0;color:white;">
                 <div style="color:#ffd51f;font-size:12px;font-weight:bold;">AI BUSINESS BOOST</div>
                 <h1 style="margin:8px 0 0;font-size:26px;">Complete Client Onboarding Submission</h1>
-                <p style="margin:10px 0 0;color:#dce8ff;">Every form response and uploaded asset is included below.</p>
+                <p style="margin:10px 0 0;color:#dce8ff;">New offer: 60s video, landing page, service flyer, 4 social designs and 2 marketing copies.</p>
               </div>
 
               <div style="border:1px solid #e1e7ef;border-top:0;padding:28px;border-radius:0 0 16px 16px;">
