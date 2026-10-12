@@ -1,304 +1,258 @@
-import ScrollReveal from "@/components/ScrollReveal";
+import Image from "next/image";
+import "./landing.css";
 
 const packageItems = [
   {
     number: "01",
-    title: "60s Promotional Video",
+    quantity: "ONE 60-SECOND VIDEO",
+    title: "A promotional video",
     description:
-      "A focused 60-second promotional video built around your business, offer and target audience.",
+      "A clear, engaging showcase for your business and offer. No on-camera appearance needed.",
+    icon: "▶",
   },
   {
     number: "02",
-    title: "Landing Page",
+    quantity: "FOUR BRANDED DESIGNS",
+    title: "Social media creatives",
     description:
-      "A conversion-focused landing page for one product or service, designed to help turn visitors into enquiries.",
+      "Four polished designs that help your business look consistent and ready to be noticed.",
+    icon: "✳",
   },
   {
     number: "03",
-    title: "Service Flyer",
+    quantity: "ONE WHATSAPP FLYER",
+    title: "An offer people can share",
     description:
-      "A professional flyer created to clearly present and promote your service or offer.",
+      "A focused status flyer that puts your offer and next step in one easy-to-share place.",
+    icon: "↗",
   },
   {
     number: "04",
-    title: "Social Media Designs",
+    quantity: "TWO CAPTIONS",
+    title: "Marketing copy that sounds like you",
     description:
-      "Four professional branded graphics created to promote your products, services or offers.",
+      "Two persuasive captions to explain your value and invite customers to take action.",
+    icon: "Aa",
   },
   {
     number: "05",
-    title: "Marketing Copies",
+    quantity: "ONE FOCUSED PAGE",
+    title: "A landing page built around your offer",
     description:
-      "Two persuasive captions or promotional copies tailored to your business goals.",
+      "A clear home for your message, proof and call to action, designed to turn interest into enquiries.",
+    icon: "▤",
+  },
+];
+
+const workSamples = [
+  {
+    image: "/work/kbazz-design.webp",
+    alt: "Promotional design for KBAZZ Apartments",
+    name: "KBAZZ Apartments",
+    category: "Hospitality · Social media design",
+  },
+  {
+    image: "/work/aleeza-design.webp",
+    alt: "Food promotion for Aleeza’s Kitchen",
+    name: "Aleeza’s Kitchen",
+    category: "Food · Promotional design",
+  },
+  {
+    image: "/work/zenith-home-care.webp",
+    alt: "Caregiver service promotion for Zenith Home Care",
+    name: "Zenith Home Care",
+    category: "Healthcare · Service promotion",
+  },
+  {
+    image: "/work/zenith-training.webp",
+    alt: "Training registration campaign for Zenith Training",
+    name: "Zenith Training",
+    category: "Education · Registration campaign",
+  },
+  {
+    image: "/work/good-food.webp",
+    alt: "Food social media design for Good Food, Brighter Days",
+    name: "Good Food, Brighter Days",
+    category: "Food · Social media design",
   },
 ];
 
 const steps = [
   {
     number: "01",
-    title: "Message us on WhatsApp",
+    title: "Tell us what you do",
     description:
-      "Start a quick conversation with us so we can confirm the package and answer any questions.",
+      "Message us on WhatsApp with your business, offer and the customers you want to reach.",
   },
   {
     number: "02",
-    title: "Confirm your payment",
+    title: "Agree on the brief",
     description:
-      "Payment is handled directly with our team in WhatsApp before your project onboarding begins.",
+      "We confirm the scope, timing, payment and materials before creative work begins.",
   },
   {
     number: "03",
-    title: "Receive your onboarding link",
+    title: "Get your boost",
     description:
-      "Once payment is confirmed, we send you a private onboarding link to share your business details and brand materials.",
-  },
-  {
-    number: "04",
-    title: "We create and deliver",
-    description:
-      "Your complete Business Boost package is created and delivered within 72 hours after your onboarding materials are received.",
+      "We create your complete kit and deliver within 72 hours after we receive your onboarding materials.",
   },
 ];
 
 export default function Home() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP ?? "";
-  const whatsappMessage = encodeURIComponent(
-    "Hi eKreativ Solutions, I'm interested in the AI Business Boost Plan and I'd like to get started."
+  const phone = (process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP ?? "2349057831324").replace(
+    /\D/g,
+    ""
   );
-  const whatsappUrl = whatsappNumber
-    ? `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
-    : "#";
+  const message = encodeURIComponent(
+    "Hello Eximius Kreativ Solutions, I’m interested in the ₦100,000 AI Business Boost package. Please confirm the scope and how to get started."
+  );
+  const whatsappUrl = `https://wa.me/${phone || "2349057831324"}?text=${message}`;
 
   return (
-    <main>
-      <ScrollReveal />
+    <main className="boost-page">
+      <div className="boost-topline">
+        <div className="boost-wrap boost-topline-inner">
+          <span>ONE COMPLETE CREATIVE KIT</span>
+          <span>₦100,000 <i aria-hidden="true">·</i> 72-HOUR DELIVERY*</span>
+        </div>
+      </div>
 
-      {/* HEADER */}
-      <header className="site-header">
-        <div className="container header-inner">
-          <a href="#" className="brand" aria-label="eKreativ Solutions home">
-            <span className="brand-mark">e</span>
-
-            <span className="brand-copy">
-              <strong>ekreativ</strong>
-              <small>SOLUTIONS</small>
-            </span>
+      <header className="boost-header">
+        <div className="boost-wrap boost-header-inner">
+          <a className="boost-brand" href="#top" aria-label="Eximius Kreativ Solutions home">
+            <span className="boost-brand-mark" aria-hidden="true">e</span>
+            <span><strong>eximius</strong><small>KREATIV SOLUTIONS</small></span>
           </a>
 
-          <nav className="desktop-nav" aria-label="Main navigation">
-            <a href="#package">What You Get</a>
-            <a href="#process">How It Works</a>
-            <a href="#about">Why Business Boost</a>
+          <nav className="boost-nav" aria-label="Main navigation">
+            <a href="#package">The package</a>
+            <a href="#work">Our work</a>
+            <a href="#process">How it works</a>
+            <a href="#faq">FAQs</a>
           </nav>
 
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="header-cta"
-          >
-            Start Your Project
+          <a className="boost-header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
+            Let’s talk <span aria-hidden="true">↗</span>
           </a>
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-grid"></div>
-
-        <div className="hero-orb hero-orb-one"></div>
-        <div className="hero-orb hero-orb-two"></div>
-
-        <div className="hero-rings" aria-hidden="true">
-          <span className="hero-ring hero-ring-one"></span>
-          <span className="hero-ring hero-ring-two"></span>
-          <span className="hero-ring hero-ring-three"></span>
-        </div>
-
-        <div className="container hero-layout">
-          <div className="hero-content">
-            <div className="eyebrow">
-              <span></span>
-              AI BUSINESS BOOST PLAN
-            </div>
-
-            <h1>
-              Marketing should help your business move,
-              <span> not just look good.</span>
-            </h1>
-
-            <p className="hero-description">
-              Get the video, landing page, designs and copy to present your business
-              clearly and give customers a reason to take the next step.
+      <section className="boost-hero" id="top">
+        <div className="boost-wrap boost-hero-grid">
+          <div className="boost-hero-copy">
+            <p className="boost-kicker"><span /> AI BUSINESS BOOST PACKAGE</p>
+            <h1>Your next customer is already scrolling.<br /><em>Give them a reason to stop.</em></h1>
+            <p className="boost-hero-description">
+              Make your business easier to notice, understand and choose with a promotional video,
+              scroll-stopping designs, persuasive copy and a focused landing page.
             </p>
 
-            <div className="hero-actions">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="primary-button"
-              >
-                Start My Business Boost
-                <span aria-hidden="true">→</span>
-              </a>
-
-              <a href="#package" className="secondary-button">
-                See What You&apos;ll Get
-              </a>
-            </div>
-
-            <div className="hero-trust">
-              <div>
-                <strong>72hrs</strong>
-                <span>Delivery Timeline</span>
-              </div>
-
-              <div>
-                <strong>9</strong>
-                <span>Marketing Assets</span>
-              </div>
-
-              <div>
-                <strong>₦100K</strong>
-                <span>Complete Package</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="hero-visual">
-            <div className="visual-shell">
-              <div className="visual-topbar">
-                <span className="visual-dot"></span>
-                <span>AI Business Boost</span>
-                <span className="visual-live">LIVE</span>
-              </div>
-
-              <div className="visual-body">
-                <div className="visual-heading">
-                  <span>BUSINESS GROWTH</span>
-                  <strong>BOOST</strong>
-                </div>
-
-                <div className="growth-card main-growth-card">
-                  <div>
-                    <small>Your Marketing Mix</small>
-                    <strong>Made Clear</strong>
-                  </div>
-
-                  <div className="chart" aria-hidden="true">
-                    <span style={{ height: "28%" }}></span>
-                    <span style={{ height: "42%" }}></span>
-                    <span style={{ height: "52%" }}></span>
-                    <span style={{ height: "70%" }}></span>
-                    <span style={{ height: "84%" }}></span>
-                    <span style={{ height: "100%" }}></span>
-                  </div>
-                </div>
-
-                <div className="mini-card mini-card-left">
-                  <span>CONTENT</span>
-                  <strong>4 Designs</strong>
-                </div>
-
-                <div className="mini-card mini-card-right">
-                  <span>VIDEO</span>
-                  <strong>60 Seconds</strong>
-                </div>
-
-                <div className="phone-card">
-                  <div className="phone-notch"></div>
-
-                  <div className="phone-content">
-                    <span>YOUR BUSINESS</span>
-                    <strong>Deserves More Visibility.</strong>
-
-                    <div className="phone-button">Boost Now</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="floating-badge">
-              <span>LIMITED OFFER</span>
+            <div className="boost-price-row">
               <strong>₦100,000</strong>
+              <span>One complete package.<br />Everything working together.</span>
             </div>
+
+            <div className="boost-actions">
+              <a className="boost-button boost-button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+                Build my business boost <span aria-hidden="true">↗</span>
+              </a>
+              <a className="boost-text-link" href="#work">See the work <span aria-hidden="true">↓</span></a>
+            </div>
+
+            <p className="boost-hero-note">Built around your offer. Made for the way customers browse today.</p>
           </div>
+
+          <div className="boost-hero-art" aria-label="Examples of Eximius Kreativ Solutions design work">
+            <div className="boost-art-backdrop" />
+            <figure className="boost-art-main">
+              <Image src="/work/aleeza-design.webp" alt="Aleeza’s Kitchen promotional design" width={1000} height={1250} priority sizes="(max-width: 760px) 70vw, 360px" />
+            </figure>
+            <figure className="boost-art-side">
+              <Image src="/work/kbazz-design.webp" alt="KBAZZ Apartments promotional design" width={1000} height={1250} priority sizes="(max-width: 760px) 42vw, 240px" />
+            </figure>
+            <div className="boost-art-sticker"><span>YOUR BUSINESS,</span><strong>seen better.</strong></div>
+            <div className="boost-art-caption"><span className="boost-live-dot" /> REAL WORK. REAL BUSINESSES.</div>
+          </div>
+        </div>
+        <div className="boost-hero-bottom boost-wrap">
+          <span>VIDEO</span><i /> <span>DESIGN</span><i /> <span>OFFER</span><i /> <span>LANDING PAGE</span>
+          <span className="boost-hero-bottom-note">*Delivery starts after onboarding materials are received.</span>
         </div>
       </section>
 
-      {/* PACKAGE */}
-      <section className="package-section" id="package">
-        <div className="container">
-          <div className="section-heading">
+      <section className="boost-package section-pad" id="package">
+        <div className="boost-wrap">
+          <div className="boost-section-heading">
             <div>
-              <span className="section-label">WHAT YOU&apos;LL GET</span>
-
-              <h2>
-                Everything you need to give your business a stronger
-                <span> digital presence.</span>
-              </h2>
+              <p className="boost-kicker"><span /> THE FULL PACKAGE</p>
+              <h2>Five pieces.<br /><em>One stronger first impression.</em></h2>
             </div>
-
-            <p>
-              One focused package combining video, a landing page, design
-              assets and marketing copy for your business.
+            <p className="boost-section-intro">
+              Each part has a job: catch attention, make your offer clear and give people a simple next step.
             </p>
           </div>
 
-          <div className="package-grid">
+          <div className="boost-package-list">
             {packageItems.map((item) => (
-              <article className="package-card" key={item.title}>
-                <div className="package-number">{item.number}</div>
-
-                <div className="package-icon">
-                  <span></span>
+              <article className="boost-package-item" key={item.number}>
+                <span className="boost-package-number">{item.number}</span>
+                <span className="boost-package-icon" aria-hidden="true">{item.icon}</span>
+                <div className="boost-package-content">
+                  <p>{item.quantity}</p>
+                  <h3>{item.title}</h3>
+                  <span>{item.description}</span>
                 </div>
-
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <span className="boost-package-arrow" aria-hidden="true">↗</span>
               </article>
             ))}
           </div>
 
-          <div className="delivery-strip">
+          <div className="boost-offer-bar">
+            <div><span>YOUR COMPLETE BUSINESS BOOST</span><strong>All five deliverables · ₦100,000</strong></div>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer">Ask about your project <span aria-hidden="true">↗</span></a>
+          </div>
+          <p className="boost-small-note">Advertising spend, domain registration and hosting are separate. We’ll confirm the scope and any extra costs before you book.</p>
+        </div>
+      </section>
+
+      <section className="boost-work section-pad" id="work">
+        <div className="boost-wrap">
+          <div className="boost-section-heading boost-work-heading">
             <div>
-              <span className="delivery-icon">↗</span>
-
-              <div>
-                <small>FAST DELIVERY</small>
-                <strong>Everything delivered within 72 hours</strong>
-              </div>
+              <p className="boost-kicker"><span /> SELECTED WORK</p>
+              <h2>Don’t imagine the difference.<br /><em>Take a look.</em></h2>
             </div>
+            <p className="boost-section-intro">A few examples of how clear creative work can help different businesses show up with confidence.</p>
+          </div>
 
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Started
-              <span>→</span>
-            </a>
+          <div className="boost-work-grid">
+            {workSamples.map((work, index) => (
+              <a className={`boost-work-card boost-work-card-${index + 1}`} href={work.image} target="_blank" rel="noreferrer" key={work.name}>
+                <div className="boost-work-image">
+                  <Image src={work.image} alt={work.alt} width={1000} height={1250} sizes="(max-width: 700px) 90vw, (max-width: 1024px) 45vw, 31vw" />
+                  <span aria-hidden="true">↗</span>
+                </div>
+                <div className="boost-work-meta"><strong>{work.name}</strong><span>{work.category}</span></div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="process-section" id="process">
-        <div className="container">
-          <div className="process-intro">
-            <span className="section-label">HOW IT WORKS</span>
-
-            <h2>
-              A simple process from first message to finished content.
-            </h2>
+      <section className="boost-process section-pad" id="process">
+        <div className="boost-wrap">
+          <div className="boost-section-heading">
+            <div>
+              <p className="boost-kicker"><span /> EASY TO GET STARTED</p>
+              <h2>From first message<br /><em>to ready-to-use creative.</em></h2>
+            </div>
+            <p className="boost-section-intro">We agree on the details first, so you know what’s included, what to send and when to expect delivery.</p>
           </div>
 
-          <div className="process-grid">
+          <div className="boost-process-grid">
             {steps.map((step) => (
-              <article className="process-card" key={step.number}>
-                <span className="process-number">{step.number}</span>
-
+              <article className="boost-process-card" key={step.number}>
+                <span>{step.number}</span>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
               </article>
@@ -307,128 +261,65 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section className="about-section" id="about">
-        <div className="container about-layout">
-          <div className="about-copy">
-            <span className="section-label">
-              BUILT FOR SMALL BUSINESSES
-            </span>
-
-            <h2>
-              A stronger digital presence starts with the right
-              <span> pieces in place.</span>
-            </h2>
-
-            <p>
-              The AI Business Boost Plan brings your essential marketing assets together
-              in one focused package — built around your business, your offer
-              and the people you want to reach.
-            </p>
-
-            <div className="about-list">
-              <div>
-                <span>✓</span>
-                Built around your actual business
-              </div>
-
-              <div>
-                <span>✓</span>
-                Designed with your brand identity
-              </div>
-
-              <div>
-                <span>✓</span>
-                Focused on enquiries, visibility and sales
-              </div>
-            </div>
+      <section className="boost-faq section-pad" id="faq">
+        <div className="boost-wrap boost-faq-grid">
+          <div>
+            <p className="boost-kicker"><span /> BEFORE YOU START</p>
+            <h2>Good questions.<br /><em>Clear answers.</em></h2>
+            <a className="boost-text-link" href={whatsappUrl} target="_blank" rel="noreferrer">Still unsure? Ask us on WhatsApp ↗</a>
           </div>
 
-          <div className="price-card">
-            <span className="price-label">
-              LIMITED-TIME PACKAGE
-            </span>
-
-            <div className="price">
-              <small>₦</small>
-              <strong>100,000</strong>
-            </div>
-
-            <p>
-              One complete marketing boost package for your business.
-            </p>
-
-            <ul>
-              <li>60s promotional video</li>
-              <li>1 landing page</li>
-              <li>1 service flyer</li>
-              <li>4 social media designs</li>
-              <li>2 marketing copies</li>
-              <li>72-hour delivery</li>
-            </ul>
-
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Message Us to Start
-              <span>→</span>
-            </a>
+          <div className="boost-faq-list">
+            <details>
+              <summary>Is this package right for my business?</summary>
+              <p>It’s designed for businesses with a specific product, service or offer to promote. Tell us what you do and who you want to reach; we’ll confirm the fit before you book.</p>
+            </details>
+            <details>
+              <summary>When does the 72-hour delivery period begin?</summary>
+              <p>After your onboarding materials are received and the brief is confirmed. We’ll agree on the schedule and required materials with you before work begins.</p>
+            </details>
+            <details>
+              <summary>Are advertising, domain or hosting costs included?</summary>
+              <p>The ₦100,000 covers the five creative deliverables listed above. Advertising spend, domain registration and hosting are separate and will be discussed before booking.</p>
+            </details>
+            <details>
+              <summary>Do I need to appear in the promotional video?</summary>
+              <p>No. The video can be created around your business, products, service and offer without an on-camera appearance.</p>
+            </details>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="cta-section" id="get-started">
-        <div className="container">
-          <div className="cta-panel">
-            <div className="cta-glow"></div>
-
-            <div>
-              <span>READY WHEN YOU ARE</span>
-
-              <h2>
-                Let&apos;s build your
-                <br />
-                Business Boost.
-              </h2>
-
-              <p>
-                Message us on WhatsApp to confirm your package and payment.
-                Once confirmed, we&apos;ll send your private onboarding link.
-              </p>
-            </div>
-
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Message Us on WhatsApp
-              <span>→</span>
-            </a>
+      <section className="boost-close">
+        <div className="boost-wrap boost-close-inner">
+          <div>
+            <p className="boost-kicker"><span /> YOUR NEXT MOVE</p>
+            <h2>Let’s make your<br /><em>first impression count.</em></h2>
+            <p>One complete creative kit for your business. Clear scope, clear price, one easy place to start.</p>
+          </div>
+          <div className="boost-close-card">
+            <span>THE AI BUSINESS BOOST</span>
+            <strong>₦100,000</strong>
+            <a className="boost-button boost-button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">Start on WhatsApp <span aria-hidden="true">↗</span></a>
+            <small>We’ll confirm the brief, timing and payment details together.</small>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer>
-        <div className="container footer-inner">
-          <div className="brand footer-brand">
-            <span className="brand-mark">e</span>
-
-            <span className="brand-copy">
-              <strong>ekreativ</strong>
-              <small>SOLUTIONS</small>
-            </span>
-          </div>
-
-          <p>Smart Tools. Better Strategies. Bigger Results.</p>
-
-          <span>© 2026 eKreativ Solutions</span>
+      <footer className="boost-footer">
+        <div className="boost-wrap boost-footer-inner">
+          <a className="boost-brand" href="#top" aria-label="Back to top">
+            <span className="boost-brand-mark" aria-hidden="true">e</span>
+            <span><strong>eximius</strong><small>KREATIV SOLUTIONS</small></span>
+          </a>
+          <a href="mailto:ekreativsolutions@gmail.com">ekreativsolutions@gmail.com</a>
+          <span>© 2026 Eximius Kreativ Solutions</span>
         </div>
       </footer>
+
+      <div className="boost-mobile-cta">
+        <a href={whatsappUrl} target="_blank" rel="noreferrer">Start my boost · ₦100,000 <span aria-hidden="true">↗</span></a>
+      </div>
     </main>
   );
 }

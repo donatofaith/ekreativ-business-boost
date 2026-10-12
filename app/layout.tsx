@@ -1,22 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./animation-upgrades.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "eKreativ Solutions | AI Business Boost",
+  title: "eKreativ Solutions | AI Business Boost — ₦100,000",
   description:
-    "AI-powered marketing content and business growth support from eKreativ Solutions.",
+    "A 60-second promotional video, four branded designs, a WhatsApp flyer, two marketing captions and a focused landing page for ₦100,000.",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
@@ -26,10 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
