@@ -29,3 +29,11 @@
 .studio-video-frame video{object-fit:contain}
 .studio-reel-meta{width:min(100%,326px);margin-inline:auto;padding:14px 0}
 @media(max-width:700px){.studio-video-frame{width:min(100%,360px);max-height:640px}.studio-reel-meta{width:min(100%,360px);padding:11px 0}}
+
+/* Give the five selected projects a deliberate three-and-two rhythm. */
+.studio-work-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:24px 20px}
+.studio-work-card-1,.studio-work-card-2,.studio-work-card-3{grid-column:span 2}
+.studio-work-card-4{grid-column:2/span 2}
+.studio-work-card-5{grid-column:4/span 2}
+.studio-work-card-2 .studio-work-thumb,.studio-work-card-5 .studio-work-thumb{height:270px}
+@media(max-width:700px){.studio-work-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}.studio-work-card-1,.studio-work-card-2,.studio-work-card-3,.studio-work-card-4{grid-column:auto}.studio-work-card-5{grid-column:1/-1;width:calc(50% - 6px);justify-self:center}.studio-work-thumb,.studio-work-card-2 .studio-work-thumb,.studio-work-card-5 .studio-work-thumb{height:220px}}

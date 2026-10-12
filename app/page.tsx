@@ -119,13 +119,13 @@ export default function Home() {
 
       <section className="studio-work" id="work">
         <div className="studio-section-head studio-work-head">
-          <div><p className="studio-eyebrow">A FEW GOOD EXAMPLES</p><h2>See it in the wild<span>.</span></h2></div>
-          <p>Different businesses. Different stories. The same goal: make the right people pay attention.</p>
+          <div><p className="studio-eyebrow">SELECTED WORK</p><h2>Less talk.<br />Let the work speak<span>.</span></h2></div>
+          <p>Browse our designs. Watch the videos.</p>
         </div>
         <div className="studio-work-grid">
           {workSamples.map((item, index) => (
             <a className={`studio-work-card studio-work-card-${index + 1}`} href={item.image} target="_blank" rel="noreferrer" key={item.name}>
-              <div className="studio-work-thumb"><Image src={item.image} alt={item.alt} width={1000} height={1250} sizes="(max-width: 680px) 88vw, (max-width: 1020px) 44vw, 28vw" /><span aria-hidden="true">↗</span></div>
+              <div className="studio-work-thumb"><Image src={item.image} alt={item.alt} width={1000} height={1250} sizes="(max-width: 1020px) 44vw, 30vw" /><span aria-hidden="true">↗</span></div>
               <div className="studio-work-caption"><div><strong>{item.name}</strong><small>{item.type}</small></div><span>0{index + 1}</span></div>
             </a>
           ))}
