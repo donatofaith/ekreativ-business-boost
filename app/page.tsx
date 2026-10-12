@@ -1,434 +1,202 @@
-import ScrollReveal from "@/components/ScrollReveal";
+import Image from "next/image";
+import "./landing.css";
 
-const packageItems = [
+const deliverables = [
   {
     number: "01",
-    title: "60s Promotional Video",
-    description:
-      "A focused 60-second promotional video built around your business, offer and target audience.",
+    title: "Make them stop",
+    detail: "One 60-second promotional video",
+    description: "A short, polished introduction to your business and the offer you want people to remember.",
+    tag: "VIDEO",
   },
   {
     number: "02",
-    title: "Landing Page",
-    description:
-      "A conversion-focused landing page for one product or service, designed to help turn visitors into enquiries.",
+    title: "Look like the real deal",
+    detail: "Four branded social media designs",
+    description: "A consistent visual presence that makes every post feel unmistakably yours.",
+    tag: "4 DESIGNS",
   },
   {
     number: "03",
-    title: "Service Flyer",
-    description:
-      "A professional flyer created to clearly present and promote your service or offer.",
+    title: "Put the offer in their hands",
+    detail: "One WhatsApp status flyer",
+    description: "A clear, shareable offer with a simple next step for the people already in your network.",
+    tag: "FLYER",
   },
   {
     number: "04",
-    title: "Social Media Designs",
-    description:
-      "Four professional branded graphics created to promote your products, services or offers.",
+    title: "Give your offer the right words",
+    detail: "Two marketing captions",
+    description: "Focused copy that explains what you do and makes it easier for the right people to respond.",
+    tag: "2 CAPTIONS",
   },
   {
     number: "05",
-    title: "Marketing Copies",
-    description:
-      "Two persuasive captions or promotional copies tailored to your business goals.",
+    title: "Turn a click into a conversation",
+    detail: "One focused landing page",
+    description: "One useful place to see your offer, build confidence and take the next step.",
+    tag: "WEB PAGE",
+  },
+];
+
+const workSamples = [
+  { image: "/work/kbazz-design.webp", alt: "KBAZZ Apartments social media design", name: "KBAZZ Apartments", type: "Hospitality" },
+  { image: "/work/aleeza-design.webp", alt: "Aleeza’s Kitchen promotional design", name: "Aleeza’s Kitchen", type: "Food & hospitality" },
+  { image: "/work/zenith-home-care.webp", alt: "Zenith Home Care service promotion", name: "Zenith Home Care", type: "Healthcare" },
+  { image: "/work/zenith-training.webp", alt: "Zenith Training registration campaign", name: "Zenith Training", type: "Education" },
+  { image: "/work/good-food.webp", alt: "Good Food, Brighter Days social media design", name: "Good Food, Brighter Days", type: "Food & hospitality" },
+];
+
+const videoDemos = [
+  {
+    title: "Aleeza’s Kitchen",
+    kind: "Website showcase",
+    length: "40 seconds",
+    poster: "/work/aleeza-design.webp",
+    src: "/videos/aleeza-kitchen-showcase.mp4",
+  },
+  {
+    title: "KBAZZ Apartments",
+    kind: "Website showcase",
+    length: "40 seconds",
+    poster: "/work/kbazz-design.webp",
+    src: "/videos/kbazz-apartments-showcase.mp4",
   },
 ];
 
 const steps = [
-  {
-    number: "01",
-    title: "Message us on WhatsApp",
-    description:
-      "Start a quick conversation with us so we can confirm the package and answer any questions.",
-  },
-  {
-    number: "02",
-    title: "Confirm your payment",
-    description:
-      "Payment is handled directly with our team in WhatsApp before your project onboarding begins.",
-  },
-  {
-    number: "03",
-    title: "Receive your onboarding link",
-    description:
-      "Once payment is confirmed, we send you a private onboarding link to share your business details and brand materials.",
-  },
-  {
-    number: "04",
-    title: "We create and deliver",
-    description:
-      "Your complete Business Boost package is created and delivered within 72 hours after your onboarding materials are received.",
-  },
+  { number: "01", title: "Tell us what you’re selling", text: "Share your business, your offer and who you want to reach." },
+  { number: "02", title: "Lock in the brief", text: "We agree on what’s included, what we need from you and when it will be ready." },
+  { number: "03", title: "Show up with confidence", text: "Your creative kit is delivered within 72 hours after your materials and brief are confirmed." },
 ];
 
 export default function Home() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP ?? "";
-  const whatsappMessage = encodeURIComponent(
-    "Hi eKreativ Solutions, I'm interested in the AI Business Boost Plan and I'd like to get started."
+  const phone = (process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP ?? "2349057831324").replace(/\D/g, "");
+  const message = encodeURIComponent(
+    "Hello Eximius Kreativ Solutions, I’m interested in the ₦100,000 AI Business Boost package. Please confirm the scope and how to get started."
   );
-  const whatsappUrl = whatsappNumber
-    ? `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
-    : "#";
+  const whatsappUrl = `https://wa.me/${phone || "2349057831324"}?text=${message}`;
 
   return (
-    <main>
-      <ScrollReveal />
+    <main className="studio-page" id="top">
+      <div className="studio-ribbon"><span>EXIMIUS KREATIV SOLUTIONS</span><span>ONE CREATIVE KIT · ₦100,000</span></div>
 
-      {/* HEADER */}
-      <header className="site-header">
-        <div className="container header-inner">
-          <a href="#" className="brand" aria-label="eKreativ Solutions home">
-            <span className="brand-mark">e</span>
-
-            <span className="brand-copy">
-              <strong>ekreativ</strong>
-              <small>SOLUTIONS</small>
-            </span>
-          </a>
-
-          <nav className="desktop-nav" aria-label="Main navigation">
-            <a href="#package">What You Get</a>
-            <a href="#process">How It Works</a>
-            <a href="#about">Why Business Boost</a>
-          </nav>
-
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="header-cta"
-          >
-            Start Your Project
-          </a>
-        </div>
+      <header className="studio-header">
+        <a className="studio-wordmark" href="#top" aria-label="Eximius Kreativ Solutions home">
+          <span className="studio-mark">e<span>.</span></span>
+          <span><strong>eximius</strong><small>KREATIV SOLUTIONS</small></span>
+        </a>
+        <nav aria-label="Main navigation">
+          <a href="#work">The work</a>
+          <a href="#package">What you get</a>
+          <a href="#steps">How it works</a>
+        </nav>
+        <a className="studio-nav-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Let’s talk <span>↗</span></a>
       </header>
 
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-grid"></div>
-
-        <div className="hero-orb hero-orb-one"></div>
-        <div className="hero-orb hero-orb-two"></div>
-
-        <div className="hero-rings" aria-hidden="true">
-          <span className="hero-ring hero-ring-one"></span>
-          <span className="hero-ring hero-ring-two"></span>
-          <span className="hero-ring hero-ring-three"></span>
+      <section className="studio-hero">
+        <div className="studio-hero-copy">
+          <p className="studio-eyebrow"><span className="studio-pulse" /> THE ₦100K BUSINESS BOOST</p>
+          <h1>Good business.<br />Now make it <em>look</em><br /><span>the part.</span></h1>
+          <p className="studio-lede">You already know your business is worth choosing. We make the first impression say it, too.</p>
+          <div className="studio-hero-actions">
+            <a className="studio-button studio-button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Get the full creative kit <span>↗</span></a>
+            <a className="studio-scroll-link" href="#work"><span className="studio-play-mark">▶</span> Watch what we make</a>
+          </div>
+          <p className="studio-delivery-note">A complete package for ₦100,000 <span>·</span> Delivery within 72 hours after the brief is confirmed*</p>
         </div>
 
-        <div className="container hero-layout">
-          <div className="hero-content">
-            <div className="eyebrow">
-              <span></span>
-              AI BUSINESS BOOST PLAN
-            </div>
-
-            <h1>
-              Marketing should help your business move,
-              <span> not just look good.</span>
-            </h1>
-
-            <p className="hero-description">
-              Get the video, landing page, designs and copy to present your business
-              clearly and give customers a reason to take the next step.
-            </p>
-
-            <div className="hero-actions">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="primary-button"
-              >
-                Start My Business Boost
-                <span aria-hidden="true">→</span>
-              </a>
-
-              <a href="#package" className="secondary-button">
-                See What You&apos;ll Get
-              </a>
-            </div>
-
-            <div className="hero-trust">
-              <div>
-                <strong>72hrs</strong>
-                <span>Delivery Timeline</span>
-              </div>
-
-              <div>
-                <strong>9</strong>
-                <span>Marketing Assets</span>
-              </div>
-
-              <div>
-                <strong>₦100K</strong>
-                <span>Complete Package</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="hero-visual">
-            <div className="visual-shell">
-              <div className="visual-topbar">
-                <span className="visual-dot"></span>
-                <span>AI Business Boost</span>
-                <span className="visual-live">LIVE</span>
-              </div>
-
-              <div className="visual-body">
-                <div className="visual-heading">
-                  <span>BUSINESS GROWTH</span>
-                  <strong>BOOST</strong>
-                </div>
-
-                <div className="growth-card main-growth-card">
-                  <div>
-                    <small>Your Marketing Mix</small>
-                    <strong>Made Clear</strong>
-                  </div>
-
-                  <div className="chart" aria-hidden="true">
-                    <span style={{ height: "28%" }}></span>
-                    <span style={{ height: "42%" }}></span>
-                    <span style={{ height: "52%" }}></span>
-                    <span style={{ height: "70%" }}></span>
-                    <span style={{ height: "84%" }}></span>
-                    <span style={{ height: "100%" }}></span>
-                  </div>
-                </div>
-
-                <div className="mini-card mini-card-left">
-                  <span>CONTENT</span>
-                  <strong>4 Designs</strong>
-                </div>
-
-                <div className="mini-card mini-card-right">
-                  <span>VIDEO</span>
-                  <strong>60 Seconds</strong>
-                </div>
-
-                <div className="phone-card">
-                  <div className="phone-notch"></div>
-
-                  <div className="phone-content">
-                    <span>YOUR BUSINESS</span>
-                    <strong>Deserves More Visibility.</strong>
-
-                    <div className="phone-button">Boost Now</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="floating-badge">
-              <span>LIMITED OFFER</span>
-              <strong>₦100,000</strong>
-            </div>
-          </div>
+        <div className="studio-hero-art" aria-label="Recent creative work for Eximius clients">
+          <div className="studio-art-label studio-art-label-top">GOOD IDEAS<br />DESERVE GOOD DESIGN.</div>
+          <div className="studio-hero-image studio-hero-image-back"><Image src="/work/kbazz-design.webp" alt="KBAZZ Apartments promotional design" width={1000} height={1250} priority sizes="(max-width: 800px) 40vw, 260px" /></div>
+          <div className="studio-hero-image studio-hero-image-front"><Image src="/work/aleeza-design.webp" alt="Aleeza’s Kitchen promotional design" width={1000} height={1250} priority sizes="(max-width: 800px) 55vw, 360px" /></div>
+          <div className="studio-art-stamp"><span>YOUR NEXT</span><strong>BIG<br />LOOK</strong><span>STARTS HERE ↗</span></div>
+          <div className="studio-art-label studio-art-label-bottom">SELECTED WORK<br /><b>01 — 05</b></div>
+          <span className="studio-art-star" aria-hidden="true">✳</span>
         </div>
+        <div className="studio-hero-footer"><span>DESIGN THAT GETS TO THE POINT</span><span>SCROLL TO SEE THE WORK ↓</span></div>
       </section>
 
-      {/* PACKAGE */}
-      <section className="package-section" id="package">
-        <div className="container">
-          <div className="section-heading">
-            <div>
-              <span className="section-label">WHAT YOU&apos;LL GET</span>
-
-              <h2>
-                Everything you need to give your business a stronger
-                <span> digital presence.</span>
-              </h2>
-            </div>
-
-            <p>
-              One focused package combining video, a landing page, design
-              assets and marketing copy for your business.
-            </p>
-          </div>
-
-          <div className="package-grid">
-            {packageItems.map((item) => (
-              <article className="package-card" key={item.title}>
-                <div className="package-number">{item.number}</div>
-
-                <div className="package-icon">
-                  <span></span>
-                </div>
-
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="delivery-strip">
-            <div>
-              <span className="delivery-icon">↗</span>
-
-              <div>
-                <small>FAST DELIVERY</small>
-                <strong>Everything delivered within 72 hours</strong>
-              </div>
-            </div>
-
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Started
-              <span>→</span>
+      <section className="studio-work" id="work">
+        <div className="studio-section-head studio-work-head">
+          <div><p className="studio-eyebrow">A FEW GOOD EXAMPLES</p><h2>See it in the wild<span>.</span></h2></div>
+          <p>Different businesses. Different stories. The same goal: make the right people pay attention.</p>
+        </div>
+        <div className="studio-work-grid">
+          {workSamples.map((item, index) => (
+            <a className={`studio-work-card studio-work-card-${index + 1}`} href={item.image} target="_blank" rel="noreferrer" key={item.name}>
+              <div className="studio-work-thumb"><Image src={item.image} alt={item.alt} width={1000} height={1250} sizes="(max-width: 680px) 88vw, (max-width: 1020px) 44vw, 28vw" /><span aria-hidden="true">↗</span></div>
+              <div className="studio-work-caption"><div><strong>{item.name}</strong><small>{item.type}</small></div><span>0{index + 1}</span></div>
             </a>
-          </div>
+          ))}
         </div>
-      </section>
-
-      {/* PROCESS */}
-      <section className="process-section" id="process">
-        <div className="container">
-          <div className="process-intro">
-            <span className="section-label">HOW IT WORKS</span>
-
-            <h2>
-              A simple process from first message to finished content.
-            </h2>
-          </div>
-
-          <div className="process-grid">
-            {steps.map((step) => (
-              <article className="process-card" key={step.number}>
-                <span className="process-number">{step.number}</span>
-
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ABOUT */}
-      <section className="about-section" id="about">
-        <div className="container about-layout">
-          <div className="about-copy">
-            <span className="section-label">
-              BUILT FOR SMALL BUSINESSES
-            </span>
-
-            <h2>
-              A stronger digital presence starts with the right
-              <span> pieces in place.</span>
-            </h2>
-
-            <p>
-              The AI Business Boost Plan brings your essential marketing assets together
-              in one focused package — built around your business, your offer
-              and the people you want to reach.
-            </p>
-
-            <div className="about-list">
-              <div>
-                <span>✓</span>
-                Built around your actual business
+        <div className="studio-reel-heading"><div><p className="studio-eyebrow">PRESS PLAY</p><h3>Good work moves.</h3></div><p>Watch two of our website showcases.</p></div>
+        <div className="studio-reel-grid">
+          {videoDemos.map((demo, index) => (
+            <article className="studio-reel-card" key={demo.title}>
+              <div className="studio-video-frame">
+                <video controls playsInline preload="metadata" poster={demo.poster} aria-label={`${demo.title} ${demo.kind} demo`}>
+                  <source src={demo.src} type="video/mp4" />
+                  Your browser does not support embedded videos.
+                </video>
+                <span className="studio-video-index">REEL 0{index + 1}</span>
               </div>
-
-              <div>
-                <span>✓</span>
-                Designed with your brand identity
-              </div>
-
-              <div>
-                <span>✓</span>
-                Focused on enquiries, visibility and sales
-              </div>
-            </div>
-          </div>
-
-          <div className="price-card">
-            <span className="price-label">
-              LIMITED-TIME PACKAGE
-            </span>
-
-            <div className="price">
-              <small>₦</small>
-              <strong>100,000</strong>
-            </div>
-
-            <p>
-              One complete marketing boost package for your business.
-            </p>
-
-            <ul>
-              <li>60s promotional video</li>
-              <li>1 landing page</li>
-              <li>1 service flyer</li>
-              <li>4 social media designs</li>
-              <li>2 marketing copies</li>
-              <li>72-hour delivery</li>
-            </ul>
-
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Message Us to Start
-              <span>→</span>
-            </a>
-          </div>
+              <div className="studio-reel-meta"><div><strong>{demo.title}</strong><span>{demo.kind}</span></div><small>{demo.length}</small></div>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="cta-section" id="get-started">
-        <div className="container">
-          <div className="cta-panel">
-            <div className="cta-glow"></div>
-
-            <div>
-              <span>READY WHEN YOU ARE</span>
-
-              <h2>
-                Let&apos;s build your
-                <br />
-                Business Boost.
-              </h2>
-
-              <p>
-                Message us on WhatsApp to confirm your package and payment.
-                Once confirmed, we&apos;ll send your private onboarding link.
-              </p>
-            </div>
-
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Message Us on WhatsApp
-              <span>→</span>
-            </a>
-          </div>
+      <section className="studio-package" id="package">
+        <div className="studio-package-intro">
+          <p className="studio-eyebrow">THE COMPLETE CREATIVE KIT</p>
+          <h2>Five moves.<br /><em>One better first impression.</em></h2>
+          <p>Each deliverable has a job. Together, they make it easier for customers to notice you, trust you and take action.</p>
+          <div className="studio-price-card"><span>ONE COMPLETE PACKAGE</span><strong>₦100,000</strong><small>All five deliverables included</small><a href={whatsappUrl} target="_blank" rel="noreferrer">Let’s build yours ↗</a></div>
+          <p className="studio-cost-note">*The 72-hour delivery period starts once your brief and materials are confirmed. Ad spend, domain and hosting are separate.</p>
+        </div>
+        <div className="studio-deliverable-list">
+          {deliverables.map((item) => (
+            <article className="studio-deliverable" key={item.number}>
+              <span className="studio-deliverable-number">{item.number}</span>
+              <div className="studio-deliverable-copy"><h3>{item.title}</h3><strong>{item.detail}</strong><p>{item.description}</p></div>
+              <span className="studio-deliverable-tag">{item.tag}</span>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer>
-        <div className="container footer-inner">
-          <div className="brand footer-brand">
-            <span className="brand-mark">e</span>
-
-            <span className="brand-copy">
-              <strong>ekreativ</strong>
-              <small>SOLUTIONS</small>
-            </span>
-          </div>
-
-          <p>Smart Tools. Better Strategies. Bigger Results.</p>
-
-          <span>© 2026 eKreativ Solutions</span>
+      <section className="studio-steps" id="steps">
+        <div className="studio-section-head"><div><p className="studio-eyebrow">NO GUESSWORK</p><h2>Three steps. Then it’s yours<span>.</span></h2></div><p>We align on the details before anything gets made.</p></div>
+        <div className="studio-steps-grid">
+          {steps.map((step) => <article className="studio-step" key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}
         </div>
+      </section>
+
+      <section className="studio-faq" id="faq">
+        <div className="studio-faq-lead"><p className="studio-eyebrow">BEFORE YOU SAY HELLO</p><h2>A few things<br />you might ask<span>.</span></h2><a href={whatsappUrl} target="_blank" rel="noreferrer">Ask us on WhatsApp ↗</a></div>
+        <div className="studio-faq-list">
+          <details><summary>Is this right for my kind of business?</summary><p>It’s built for businesses with a specific product, service or offer to promote. Tell us what you do and who you want to reach; we’ll confirm it’s a good fit before you book.</p></details>
+          <details><summary>When does the 72-hour delivery start?</summary><p>Once we have your onboarding materials and have confirmed the brief. We’ll agree on the start time and schedule with you before work begins.</p></details>
+          <details><summary>Are ads, domain and hosting included?</summary><p>The package includes the five creative deliverables on this page. Advertising, domain registration and hosting costs are separate and confirmed with you first.</p></details>
+          <details><summary>Do I need to appear in the video?</summary><p>No. We can build it around your products, service and offer without an on-camera appearance.</p></details>
+        </div>
+      </section>
+
+      <section className="studio-close">
+        <p className="studio-eyebrow">YOUR BUSINESS IS READY FOR ITS CLOSE-UP</p>
+        <h2>Let’s make people<br /><em>look twice.</em></h2>
+        <p>One creative kit. Clear scope. A simple start on WhatsApp.</p>
+        <a className="studio-button studio-button-light" href={whatsappUrl} target="_blank" rel="noreferrer">Start your business boost <span>↗</span></a>
+        <div className="studio-close-orbit" aria-hidden="true">EK</div>
+      </section>
+
+      <footer className="studio-footer">
+        <a className="studio-wordmark studio-wordmark-footer" href="#top"><span className="studio-mark">e<span>.</span></span><span><strong>eximius</strong><small>KREATIV SOLUTIONS</small></span></a>
+        <a href="mailto:ekreativsolutions@gmail.com">ekreativsolutions@gmail.com</a>
+        <span>© 2026 Eximius Kreativ Solutions</span>
       </footer>
+      <div className="studio-mobile-cta"><a href={whatsappUrl} target="_blank" rel="noreferrer">Get the kit · ₦100,000 <span>↗</span></a></div>
     </main>
   );
 }
