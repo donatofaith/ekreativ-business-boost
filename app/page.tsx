@@ -123,13 +123,13 @@ export default function Home() {
             </div>
 
             <h1>
-              Your business doesn&apos;t need more ideas.
-              <span> It needs better marketing.</span>
+              Marketing should help your business move,
+              <span> not just look good.</span>
             </h1>
 
             <p className="hero-description">
-              We create the marketing assets your business needs to attract
-              attention and turn interest into enquiries.
+              Get the video, landing page, designs and copy to present your business
+              clearly and give customers a reason to take the next step.
             </p>
 
             <div className="hero-actions">
@@ -182,8 +182,8 @@ export default function Home() {
 
                 <div className="growth-card main-growth-card">
                   <div>
-                    <small>Campaign Potential</small>
-                    <strong>+248%</strong>
+                    <small>Your Marketing Mix</small>
+                    <strong>Made Clear</strong>
                   </div>
 
                   <div className="chart" aria-hidden="true">
@@ -316,15 +316,14 @@ export default function Home() {
             </span>
 
             <h2>
-              Marketing should help your business move, not just
-              <span> look good.</span>
+              A stronger digital presence starts with the right
+              <span> pieces in place.</span>
             </h2>
 
             <p>
-              The AI Business Boost Plan combines strategy, design and
-              AI-powered production to create marketing materials that have a
-              clear purpose — helping people notice your business and take
-              action.
+              The AI Business Boost Plan brings your essential marketing assets together
+              in one focused package — built around your business, your offer
+              and the people you want to reach.
             </p>
 
             <div className="about-list">
