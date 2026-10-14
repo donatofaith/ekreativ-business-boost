@@ -229,3 +229,70 @@
  .studio-page:after{display:none}
  .studio-work-card{transition:none}
 }
+
+/* Sales-focused light refresh — October 2026 */
+.studio-page{--ink:#20242b;--paper:#faf8f3;--white:#fff;--orange:#ff9f35;--orange-dark:#174d98;--muted:#59616b;--line:#e2ddd4;background:#faf8f3!important;color:#20242b!important}
+.studio-page:before,.studio-page:after{display:none!important}
+.studio-header,.studio-work,.studio-package,.studio-steps,.studio-faq,.studio-footer{background:#faf8f3!important;color:#20242b!important;box-shadow:none!important;border-color:#e2ddd4!important}
+.studio-header{background:#fff!important}
+.studio-ribbon{background:#174d98!important}
+.studio-ribbon span:last-child{color:#fff!important}
+.studio-hero{background:#faf8f3!important;min-height:0!important;padding-top:55px!important}
+.studio-hero h1{font-size:clamp(38px,5vw,68px)!important;line-height:1.08!important;letter-spacing:-.055em!important;color:#20242b!important}
+.studio-hero h1 em,.studio-hero h1 span,.studio-package-intro h2 em,.studio-close h2 em{color:#174d98!important}
+.studio-lede{color:#414955!important;font-size:16px!important}
+.studio-section-head h2,.studio-reel-heading h3,.studio-faq h2,.studio-package-intro h2,.studio-deliverable-copy h3,.studio-step h3,.studio-faq-list summary,.studio-work-caption strong,.studio-reel-meta strong{color:#20242b!important}
+.studio-section-head>p,.studio-reel-heading>p,.studio-package-intro>p,.studio-deliverable-copy p,.studio-step p,.studio-faq-list details p,.studio-reel-meta span,.studio-reel-meta small,.studio-work-caption small{color:#59616b!important}
+.studio-work-card,.studio-reel-card,.studio-price-card{background:#fff!important;border:1px solid #e2ddd4!important;border-radius:12px!important;box-shadow:none!important;color:#20242b!important}
+.studio-price-card>span,.studio-price-card small,.studio-price-card strong{color:#20242b!important}
+.studio-price-card a{color:#20242b!important;border-color:#e2ddd4!important}
+.studio-nav-cta,.studio-button-dark,.studio-button-light,.studio-mobile-cta a{background:#ff9f35!important;color:#20242b!important;box-shadow:none!important;border-radius:8px!important}
+.studio-nav-cta span,.studio-button span{color:#20242b!important}
+.studio-deliverable,.studio-deliverable-list,.studio-step,.studio-faq-list,.studio-faq-list details{border-color:#e2ddd4!important}
+.studio-deliverable-copy strong{color:#414955!important}
+.studio-deliverable-tag{background:#fff!important;color:#414955!important;border:1px solid #e2ddd4!important}
+.studio-close{background:#174d98!important;box-shadow:none!important}
+.studio-close h2,.studio-close>p,.studio-close .studio-eyebrow{color:#fff!important}
+.studio-close h2 em{color:#ffcc8c!important}
+.studio-footer>span,.studio-footer a{color:#414955!important}
+.studio-mobile-cta{background:#fff!important;border-top:1px solid #e2ddd4!important;backdrop-filter:none!important}
+.studio-work-track{animation:none!important;transform:none!important;display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:18px!important;width:100%!important}
+.studio-work-card{flex:1 1 230px!important;max-width:360px!important}
+.studio-work-marquee{overflow:visible!important}
+.studio-hero-art:before{background:#eee7da!important}
+.studio-art-stamp{background:#174d98!important;box-shadow:none!important}
+.studio-art-star{color:#174d98!important;text-shadow:none!important}
+.studio-video-index{background:#ff9f35!important;color:#20242b!important}
+@media(max-width:700px){.studio-hero{padding-top:28px!important}.studio-hero h1{font-size:clamp(36px,9vw,49px)!important}.studio-hero-copy{padding-bottom:18px!important}.studio-work-track{flex-wrap:nowrap!important;overflow-x:auto!important;justify-content:flex-start!important;scroll-snap-type:x mandatory!important;padding-bottom:12px!important}.studio-work-card{min-width:75vw!important;scroll-snap-align:start!important}.studio-mobile-cta{padding-bottom:env(safe-area-inset-bottom)!important}.studio-page{padding-bottom:75px!important}}
+
+/* Mobile overflow and animated portfolio fixes */
+.studio-page{width:100%;max-width:100vw;overflow-x:clip!important}
+.studio-package{min-width:0}
+.studio-package-intro,.studio-deliverable-list{min-width:0}
+.studio-footer-brand{display:block;color:#20242b!important;font:800 clamp(20px,3vw,28px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-.04em}
+.studio-work-marquee{overflow:hidden!important;width:100%}
+.studio-work-track{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-start!important;gap:18px!important;width:max-content!important;animation:ekWorkFlow 38s linear infinite!important;transform:none}
+.studio-work-card{flex:0 0 260px!important;width:260px!important;max-width:none!important}
+.studio-work-marquee:hover .studio-work-track,.studio-work-marquee:focus-within .studio-work-track{animation-play-state:paused!important}
+@keyframes ekWorkFlow{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 9px))}}
+@media(max-width:900px){
+ .studio-package{display:flex!important;flex-direction:column!important;gap:30px!important;padding:65px 20px!important}
+ .studio-package-intro{position:static!important;top:auto!important;width:100%!important}
+ .studio-deliverable-list{width:100%!important}
+ .studio-package-intro h2{font-size:clamp(32px,8vw,48px)!important;overflow-wrap:break-word}
+ .studio-price-card{max-width:100%!important}
+ .studio-deliverable{grid-template-columns:34px minmax(0,1fr)!important;gap:12px!important}
+ .studio-deliverable-tag{grid-column:2!important;justify-self:start}
+ .studio-close{padding-left:20px!important;padding-right:20px!important;overflow:hidden!important}
+ .studio-close h2{font-size:clamp(36px,9vw,54px)!important;overflow-wrap:anywhere}
+ .studio-close>p{max-width:100%!important}
+ .studio-close .studio-button{max-width:100%!important;white-space:normal!important;text-align:center}
+ .studio-footer{padding-left:20px!important;padding-right:20px!important;display:flex!important;flex-wrap:wrap!important;gap:20px!important}
+ .studio-footer>*{min-width:0!important;max-width:100%!important;overflow-wrap:anywhere}
+}
+@media(max-width:700px){
+ .studio-work-track{flex-wrap:nowrap!important;overflow-x:visible!important;scroll-snap-type:none!important;padding-bottom:0!important}
+ .studio-work-card{min-width:240px!important;width:240px!important;flex-basis:240px!important}
+ .studio-close-orbit{pointer-events:none!important}
+}
+@media(prefers-reduced-motion:reduce){.studio-work-track{animation:none!important;max-width:100%!important;overflow-x:auto!important}}
