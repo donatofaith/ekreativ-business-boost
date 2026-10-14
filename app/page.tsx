@@ -123,7 +123,7 @@ export default function Home() {
         </div>
         <div className="studio-work-marquee" aria-label="Gallery of selected work">
           <div className="studio-work-track">
-            {workSamples.slice(0, 3).map((item, index) => (
+            {[...workSamples, ...workSamples].map((item, index) => (
               <a
                 className="studio-work-card"
                 href={item.image}
@@ -165,8 +165,8 @@ export default function Home() {
       <section className="studio-package" id="package">
         <div className="studio-package-intro">
           <p className="studio-eyebrow">THE COMPLETE CREATIVE KIT</p>
-          <h2>Here’s what you get<br /><em>for ₦100,000.</em></h2>
-          <p>Each deliverable has a job. Together, they make it easier for customers to notice you, trust you and take action.</p>
+          <h2>Here’s what you get</h2>
+          <p>Five useful promotional materials for one clear package price.</p>
           <div className="studio-price-card"><span>ONE COMPLETE PACKAGE</span><strong>₦100,000</strong><small>All five deliverables included</small><a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp ↗</a></div>
           <p className="studio-cost-note">Ad spend, domain and hosting are not included. Ask us how your sales page will go live and whether any ongoing costs apply.</p>
         </div>
@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
       <footer className="studio-footer">
-        <a className="studio-wordmark studio-wordmark-footer studio-wordmark-image" href="#top" aria-label="Eximius Kreativ Solutions home"><Image src="/eximius-kreativ-logo.svg" alt="Eximius Kreativ Solutions" width={200} height={55} /></a>
+        <a className="studio-wordmark studio-wordmark-footer studio-wordmark-image" href="#top" aria-label="Eximius Kreativ Solutions home"><span className="studio-footer-brand">Eximius<br />Kreativ Solutions</span></a>
         <a href="mailto:ekreativsolutions@gmail.com">ekreativsolutions@gmail.com</a>
         <span>© 2026 Eximius Kreativ Solutions</span>
       </footer>
