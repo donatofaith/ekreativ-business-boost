@@ -82,9 +82,8 @@ export default function Home() {
       <div className="studio-ribbon"><span>EXIMIUS KREATIV SOLUTIONS</span><span>ONE CREATIVE KIT · ₦100,000</span></div>
 
       <header className="studio-header">
-        <a className="studio-wordmark" href="#top" aria-label="Eximius Kreativ Solutions home">
-          <span className="studio-mark">e<span>.</span></span>
-          <span><strong>eximius</strong><small>KREATIV SOLUTIONS</small></span>
+        <a className="studio-wordmark studio-wordmark-image" href="#top" aria-label="Eximius Kreativ Solutions home">
+          <Image src="/eximius-kreativ-logo.svg" alt="Eximius Kreativ Solutions" width={230} height={63} priority />
         </a>
         <nav aria-label="Main navigation">
           <a href="#work">The work</a>
@@ -122,13 +121,29 @@ export default function Home() {
           <div><p className="studio-eyebrow">SELECTED WORK</p><h2>Less talk.<br />Let the work speak<span>.</span></h2></div>
           <p>Browse our designs. Watch the videos.</p>
         </div>
-        <div className="studio-work-grid">
-          {workSamples.map((item, index) => (
-            <a className={`studio-work-card studio-work-card-${index + 1}`} href={item.image} target="_blank" rel="noreferrer" key={item.name}>
-              <div className="studio-work-thumb"><Image src={item.image} alt={item.alt} width={1000} height={1250} sizes="(max-width: 1020px) 44vw, 30vw" /><span aria-hidden="true">↗</span></div>
-              <div className="studio-work-caption"><div><strong>{item.name}</strong><small>{item.type}</small></div><span>0{index + 1}</span></div>
-            </a>
-          ))}
+        <div className="studio-work-marquee" aria-label="Scrolling gallery of selected work">
+          <div className="studio-work-track">
+            {[...workSamples, ...workSamples].map((item, index) => (
+              <a
+                className="studio-work-card"
+                href={item.image}
+                target="_blank"
+                rel="noreferrer"
+                key={`${item.name}-${index}`}
+                aria-hidden={index >= workSamples.length ? true : undefined}
+                tabIndex={index >= workSamples.length ? -1 : undefined}
+              >
+                <div className="studio-work-thumb">
+                  <Image src={item.image} alt={item.alt} width={1000} height={1250} sizes="(max-width: 700px) 72vw, 300px" />
+                  <span aria-hidden="true">↗</span>
+                </div>
+                <div className="studio-work-caption">
+                  <div><strong>{item.name}</strong><small>{item.type}</small></div>
+                  <span>0{(index % workSamples.length) + 1}</span>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
         <div className="studio-reel-heading"><div><p className="studio-eyebrow">PRESS PLAY</p><h3>Good work moves.</h3></div><p>Watch two of our website showcases.</p></div>
         <div className="studio-reel-grid">
@@ -192,7 +207,7 @@ export default function Home() {
       </section>
 
       <footer className="studio-footer">
-        <a className="studio-wordmark studio-wordmark-footer" href="#top"><span className="studio-mark">e<span>.</span></span><span><strong>eximius</strong><small>KREATIV SOLUTIONS</small></span></a>
+        <a className="studio-wordmark studio-wordmark-footer studio-wordmark-image" href="#top" aria-label="Eximius Kreativ Solutions home"><Image src="/eximius-kreativ-logo.svg" alt="Eximius Kreativ Solutions" width={200} height={55} /></a>
         <a href="mailto:ekreativsolutions@gmail.com">ekreativsolutions@gmail.com</a>
         <span>© 2026 Eximius Kreativ Solutions</span>
       </footer>
