@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 250" role="img" aria-labelledby="title">
+<title id="title">Eximius Kreativ Solutions</title>
+<defs><linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0754ff"/><stop offset="1" stop-color="#086bff"/></linearGradient></defs>
+<g fill="url(#blue)">
+<path d="M34 110 130 55 164 75 91 118 88 171 50 193 31 182Z"/>
+<path d="M136 14 210 57 Q225 66 225 84 L225 139 196 156 196 91 136 56Z"/>
+<path d="M103 151 137 132 135 164 194 199 231 179 267 200 211 231 Q196 240 179 230 L97 183 Q86 176 92 163Z"/>
+</g>
+<g fill="#071d4a" font-family="Arial, Helvetica, sans-serif" font-weight="900">
+<text x="290" y="132" font-size="106" letter-spacing="-5">Eximius</text>
+<text x="290" y="210" font-size="65" letter-spacing="-2">Kreativ Solutions</text>
+</g>
+</svg>
