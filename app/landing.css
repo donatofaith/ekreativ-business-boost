@@ -58,3 +58,60 @@
  .studio-work-thumb,.studio-work-card-2 .studio-work-thumb,.studio-work-card-3 .studio-work-thumb,.studio-work-card-4 .studio-work-thumb,.studio-work-card-5 .studio-work-thumb{height:290px}
 }
 @media(prefers-reduced-motion:reduce){.studio-work-track{animation:none;transform:none}.studio-work-marquee{overflow-x:auto;mask-image:none}.studio-work-track{width:max-content}}
+
+
+/* Living studio polish: ambient blue light, gentle depth and tactile interactions.
+   Visual-only layer; no content, routes, or form behavior changes. */
+.studio-page{position:relative;isolation:isolate}
+.studio-page:before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:0 0 auto;height:900px;background:radial-gradient(ellipse at 82% 16%,rgba(8,107,255,.085),transparent 34%),radial-gradient(ellipse at 12% 42%,rgba(8,107,255,.045),transparent 31%);animation:studioAmbientDrift 18s ease-in-out infinite alternate}
+.studio-ribbon{position:relative;overflow:hidden}
+.studio-ribbon:after{content:"";position:absolute;top:0;bottom:0;left:-28%;width:18%;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(110,170,255,.23),transparent);transform:skewX(-24deg);animation:studioRibbonSweep 9s ease-in-out infinite}
+.studio-hero-art:after{content:"";position:absolute;z-index:-1;inset:14% 8% 9% 16%;border-radius:50%;background:rgba(8,107,255,.12);filter:blur(42px);animation:studioGlowBreathe 7s ease-in-out infinite alternate}
+.studio-hero-image-front{animation:studioFloatFront 7s ease-in-out infinite}
+.studio-hero-image-back{animation:studioFloatBack 8.5s ease-in-out infinite}
+.studio-art-stamp{animation:studioStampFloat 5.5s ease-in-out infinite}
+.studio-art-star{animation:studioStarTurn 24s linear infinite}
+.studio-pulse{animation:studioPulseGlow 2.8s ease-in-out infinite}
+.studio-button,.studio-nav-cta,.studio-mobile-cta a{position:relative;overflow:hidden;isolation:isolate}
+.studio-button:after,.studio-nav-cta:after,.studio-mobile-cta a:after{content:"";position:absolute;z-index:-1;top:-60%;bottom:-60%;left:-70%;width:42%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-20deg);transition:left .55s ease}
+.studio-button:hover:after,.studio-nav-cta:hover:after,.studio-mobile-cta a:hover:after{left:130%}
+.studio-work-card .studio-work-thumb{border-radius:2px}
+.studio-work-card .studio-work-thumb>span{transition:transform .25s ease,background .25s ease,color .25s ease}
+.studio-work-card:hover .studio-work-thumb>span{transform:rotate(45deg);background:var(--orange);color:#fff}
+.studio-work-caption strong{transition:color .22s ease}
+.studio-work-card:hover .studio-work-caption strong{color:var(--orange-dark)}
+.studio-deliverable{transition:padding-left .25s ease,background-color .25s ease}
+.studio-deliverable:hover{padding-left:10px;background:rgba(255,255,255,.38)}
+.studio-deliverable-number{transition:transform .25s ease,color .25s ease}
+.studio-deliverable:hover .studio-deliverable-number{transform:translateX(3px);color:var(--orange-dark)}
+.studio-step{transition:background-color .25s ease,padding-top .25s ease}
+.studio-step:hover{background:linear-gradient(135deg,rgba(8,107,255,.045),transparent 75%);padding-top:27px}
+.studio-step>span{display:inline-block;transition:transform .25s ease}
+.studio-step:hover>span{transform:translateX(5px)}
+.studio-price-card{position:relative;overflow:hidden}
+.studio-price-card:before{content:"";position:absolute;top:-80%;right:-25%;width:180px;height:180px;border:1px solid rgba(100,160,255,.24);border-radius:50%;box-shadow:0 0 0 20px rgba(100,160,255,.045),0 0 0 40px rgba(100,160,255,.025);pointer-events:none}
+.studio-price-card strong{position:relative}
+.studio-faq-list summary{transition:color .2s ease}
+.studio-faq-list summary:hover{color:var(--orange-dark)}
+.studio-close{background:linear-gradient(118deg,#0754d6 0%,#086bff 52%,#1647bb 100%);background-size:180% 180%;animation:studioBlueFlow 14s ease-in-out infinite alternate}
+.studio-close-orbit{animation:studioOrbit 22s linear infinite}
+@keyframes studioAmbientDrift{from{background-position:0 0,0 0}to{background-position:50px -28px,-30px 40px}}
+@keyframes studioRibbonSweep{0%,65%{left:-28%;opacity:0}72%{opacity:1}100%{left:125%;opacity:0}}
+@keyframes studioGlowBreathe{from{opacity:.55;transform:scale(.94)}to{opacity:1;transform:scale(1.06)}}
+@keyframes studioFloatFront{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-9px) rotate(-3.5deg)}}
+@keyframes studioFloatBack{0%,100%{transform:translateY(0) rotate(7deg)}50%{transform:translateY(8px) rotate(5.5deg)}}
+@keyframes studioStampFloat{0%,100%{transform:translateY(0) rotate(9deg)}50%{transform:translateY(-7px) rotate(5deg)}}
+@keyframes studioStarTurn{from{transform:rotate(-12deg)}to{transform:rotate(348deg)}}
+@keyframes studioPulseGlow{0%,100%{box-shadow:0 0 0 5px rgba(8,107,255,.12)}50%{box-shadow:0 0 0 8px rgba(8,107,255,.04)}}
+@keyframes studioBlueFlow{from{background-position:0% 50%}to{background-position:100% 50%}}
+@keyframes studioOrbit{from{transform:rotate(-14deg)}to{transform:rotate(346deg)}}
+@media(max-width:700px){
+ .studio-hero-art:after{filter:blur(28px)}
+ .studio-deliverable:hover{padding-left:4px}
+ .studio-step:hover{padding-top:19px}
+}
+@media(prefers-reduced-motion:reduce){
+ .studio-page:before,.studio-ribbon:after,.studio-hero-art:after,.studio-hero-image-front,.studio-hero-image-back,.studio-art-stamp,.studio-art-star,.studio-pulse,.studio-close,.studio-close-orbit{animation:none!important}
+ .studio-button:after,.studio-nav-cta:after,.studio-mobile-cta a:after{display:none}
+ .studio-deliverable,.studio-step,.studio-work-card .studio-work-thumb>span,.studio-work-caption strong,.studio-deliverable-number,.studio-step>span{transition:none!important}
+}
