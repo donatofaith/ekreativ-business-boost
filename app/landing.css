@@ -120,3 +120,112 @@
 /* Keep the ambient lighting inside the page background so it never layers over content. */
 .studio-page{background-color:var(--paper);background-image:radial-gradient(ellipse at 82% 4%,rgba(8,107,255,.075),transparent 33%),radial-gradient(ellipse at 10% 24%,rgba(8,107,255,.04),transparent 28%);background-repeat:no-repeat;background-size:100% 900px,100% 760px}
 .studio-page:before{display:none}
+
+
+/* Dark, immersive studio direction — keeps the existing copy, sections and conversion flow. */
+.studio-page{
+ --ink:#f4f8ff;--paper:#06111f;--white:#0b1b2e;--orange:#39d5ff;--orange-dark:#64e0ff;--muted:#9aabc0;--line:rgba(170,203,237,.16);
+ background-color:#06111f;
+ background-image:radial-gradient(ellipse at 72% 8%,rgba(20,119,255,.23),transparent 36%),radial-gradient(ellipse at 12% 38%,rgba(0,211,255,.08),transparent 32%),linear-gradient(rgba(106,160,220,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(106,160,220,.035) 1px,transparent 1px);
+ background-size:auto,auto,52px 52px,52px 52px;color:#f4f8ff;
+}
+.studio-page:after{content:"";position:absolute;z-index:-1;pointer-events:none;top:0;left:0;right:0;height:100%;background:radial-gradient(ellipse at 50% 24%,rgba(0,128,255,.08),transparent 48%);opacity:.8}
+.studio-ribbon{background:#030914;color:#d8e7fa;border-bottom:1px solid rgba(84,181,255,.22)}
+.studio-ribbon span:last-child{color:#5ce0ff}
+.studio-header{background:rgba(6,17,31,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(151,194,238,.14)}
+.studio-wordmark strong,.studio-header nav a{color:#f4f8ff}
+.studio-wordmark small{color:#8fa8c7}
+.studio-mark{background:#35d6ff;color:#06111f;box-shadow:0 0 28px rgba(53,214,255,.28)}
+.studio-nav-cta{background:#35d6ff;color:#04101c!important;box-shadow:0 8px 28px rgba(0,188,255,.16)}
+.studio-nav-cta span{color:#06111f}
+.studio-hero{background:transparent;min-height:700px;isolation:isolate}
+.studio-hero:before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 78% 45%,rgba(22,121,255,.2),transparent 38%);pointer-events:none}
+.studio-hero h1{color:#f5f8ff;text-shadow:0 6px 45px rgba(40,115,255,.08)}
+.studio-hero h1 em,.studio-section-head h2 span,.studio-faq h2 span,.studio-package-intro h2 em{color:#4bddff}
+.studio-hero h1 span:after{height:10%;bottom:0;background:linear-gradient(90deg,#31d8ff,#347dff);opacity:.8;transform:rotate(-1deg)}
+.studio-eyebrow{color:#5ce0ff}
+.studio-pulse{background:#4bddff;box-shadow:0 0 0 5px rgba(75,221,255,.13),0 0 22px rgba(75,221,255,.55)}
+.studio-lede,.studio-delivery-note{color:#a8bad0}
+.studio-button-dark{background:linear-gradient(110deg,#39d5ff,#4387ff);color:#06111f!important;box-shadow:0 12px 35px rgba(24,145,255,.24)}
+.studio-button-dark span{color:#06111f}
+.studio-scroll-link{color:#e5f0ff}
+.studio-play-mark{border-color:rgba(126,204,255,.6);color:#4bddff}
+.studio-hero-art:before{inset:4% -2% 4% 7%;background:linear-gradient(145deg,rgba(24,109,209,.32),rgba(8,27,48,.55));border:1px solid rgba(93,194,255,.22);clip-path:polygon(7% 0,100% 5%,94% 100%,0 91%)}
+.studio-hero-art:after{background:rgba(0,144,255,.28);filter:blur(58px)}
+.studio-hero-image{background:#0d2035;border:1px solid rgba(144,208,255,.3)!important;box-shadow:0 28px 80px rgba(0,0,0,.42),0 0 38px rgba(26,127,255,.12)}
+.studio-hero-image-front,.studio-hero-image-back{border-width:5px!important;border-color:rgba(161,214,255,.7)!important}
+.studio-art-label{color:#a9c3e0}
+.studio-art-label-bottom b{color:#4bddff}
+.studio-art-stamp{background:linear-gradient(145deg,#3ce0ff,#347dff);color:#03111f;box-shadow:0 12px 40px rgba(0,157,255,.3)}
+.studio-art-star{color:#4bddff;text-shadow:0 0 24px rgba(75,221,255,.45)}
+.studio-hero-footer{border-color:rgba(151,194,238,.18);color:#8fa8c7}
+.studio-work{background:rgba(8,23,40,.82);border-top:1px solid rgba(151,194,238,.12);border-bottom:1px solid rgba(151,194,238,.12)}
+.studio-section-head h2,.studio-reel-heading h3,.studio-faq h2{color:#f4f8ff}
+.studio-section-head>p,.studio-reel-heading>p{color:#9aabc0}
+.studio-work-thumb,.studio-work-card-2 .studio-work-thumb,.studio-work-card-3 .studio-work-thumb,.studio-work-card-4 .studio-work-thumb,.studio-work-card-5 .studio-work-thumb{background:#0c1c30;border:1px solid rgba(125,193,255,.15)}
+.studio-work-card{background:rgba(12,29,49,.44);padding:9px;border:1px solid rgba(137,193,244,.12);border-radius:12px;transition:transform .35s,border-color .35s,box-shadow .35s}
+.studio-work-card:hover{transform:translateY(-7px);border-color:rgba(69,214,255,.52);box-shadow:0 18px 48px rgba(0,0,0,.24),0 0 26px rgba(0,157,255,.1)}
+.studio-work-caption{border-color:rgba(151,194,238,.13)}
+.studio-work-caption strong{color:#f4f8ff}
+.studio-work-caption small{color:#93a8c2}
+.studio-work-caption>span{color:#4bddff}
+.studio-reel-heading{border-color:rgba(151,194,238,.17)}
+.studio-reel-card{background:#0a192a;border:1px solid rgba(125,193,255,.15);border-radius:12px;overflow:hidden}
+.studio-video-frame{background:#030a13}
+.studio-video-index{background:#35d6ff;color:#03111f}
+.studio-reel-meta strong{color:#f4f8ff}
+.studio-reel-meta span,.studio-reel-meta small{color:#93a8c2}
+.studio-package{background:#081525;border-top:1px solid rgba(151,194,238,.12);border-bottom:1px solid rgba(151,194,238,.12)}
+.studio-package-intro h2{color:#f4f8ff}
+.studio-package-intro>p:not(.studio-eyebrow):not(.studio-cost-note){color:#9aabc0}
+.studio-price-card{background:linear-gradient(145deg,#102c49,#071321);border:1px solid rgba(71,213,255,.34);border-radius:16px;box-shadow:0 24px 65px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.06)}
+.studio-price-card>span,.studio-price-card small{color:#a8bed8}
+.studio-price-card strong{color:#f6fbff}
+.studio-price-card a{border-color:rgba(151,194,238,.18);color:#4bddff}
+.studio-cost-note{color:#8399b3}
+.studio-deliverable-list{border-color:rgba(151,194,238,.18)}
+.studio-deliverable{border-color:rgba(151,194,238,.16)}
+.studio-deliverable:hover{background:rgba(29,83,128,.2)}
+.studio-deliverable-number{color:#4bddff}
+.studio-deliverable-copy h3{color:#f4f8ff}
+.studio-deliverable-copy strong{color:#c4d6eb}
+.studio-deliverable-copy p{color:#96abc4}
+.studio-deliverable-tag{background:#10243a;color:#a9c1dc;border:1px solid rgba(151,194,238,.14);border-radius:6px}
+.studio-steps{background:#06111f}
+.studio-step{border-color:rgba(151,194,238,.17)}
+.studio-step h3{color:#f4f8ff}
+.studio-step p{color:#9aabc0}
+.studio-step:hover{background:linear-gradient(135deg,rgba(0,151,255,.13),transparent 80%)}
+.studio-faq{background:#0a192a;border-top:1px solid rgba(151,194,238,.12)}
+.studio-faq-list,.studio-faq-list details{border-color:rgba(151,194,238,.17)}
+.studio-faq-list summary{color:#eaf4ff}
+.studio-faq-list summary:after{color:#4bddff}
+.studio-faq-list details p{color:#9aabc0}
+.studio-faq-lead>a{color:#4bddff;border-color:rgba(75,221,255,.45)}
+.studio-close{background:radial-gradient(ellipse at 50% 120%,rgba(0,209,255,.34),transparent 55%),linear-gradient(120deg,#0a2b54,#0757a8 50%,#092c5c);border-top:1px solid rgba(96,203,255,.28);border-bottom:1px solid rgba(96,203,255,.28)}
+.studio-close .studio-eyebrow,.studio-close>p:not(.studio-eyebrow){color:#c6e8ff}
+.studio-close h2{color:#f4f8ff}
+.studio-close h2 em{color:#4bddff}
+.studio-button-light{background:#eafaff;color:#04111f!important;box-shadow:0 12px 35px rgba(0,0,0,.2)}
+.studio-button-light span{color:#0873d6}
+.studio-close-orbit{border-color:rgba(96,211,255,.25);color:rgba(117,220,255,.16)}
+.studio-footer{background:#030914;border-top:1px solid rgba(151,194,238,.13)}
+.studio-wordmark-footer small{color:#91a9c7}
+.studio-footer>span{color:#8298b3}
+.studio-mobile-cta{background:rgba(4,14,26,.9);border-color:rgba(113,189,255,.2);backdrop-filter:blur(18px)}
+.studio-mobile-cta a{background:linear-gradient(100deg,#35d6ff,#4387ff);color:#03111f}
+.studio-mobile-cta span{color:#03111f}
+@keyframes studioAmbientDrift{from{background-position:0 0,0 0,0 0,0 0}to{background-position:55px -30px,-35px 42px,0 0,0 0}}
+@media(max-width:700px){
+ .studio-hero{min-height:0;padding-top:48px}
+ .studio-hero-art{min-height:360px}
+ .studio-work{padding-top:72px;padding-bottom:76px}
+ .studio-work-card{padding:7px;border-radius:9px}
+ .studio-work-thumb,.studio-work-card-2 .studio-work-thumb,.studio-work-card-3 .studio-work-thumb,.studio-work-card-4 .studio-work-thumb,.studio-work-card-5 .studio-work-thumb{height:260px}
+ .studio-package,.studio-steps,.studio-faq{background-color:#081525}
+ .studio-steps{background-color:#06111f}
+}
+@media(prefers-reduced-motion:reduce){
+ .studio-page:after{display:none}
+ .studio-work-card{transition:none}
+}
