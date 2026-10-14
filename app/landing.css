@@ -115,3 +115,8 @@
  .studio-button:after,.studio-nav-cta:after,.studio-mobile-cta a:after{display:none}
  .studio-deliverable,.studio-step,.studio-work-card .studio-work-thumb>span,.studio-work-caption strong,.studio-deliverable-number,.studio-step>span{transition:none!important}
 }
+
+
+/* Keep the ambient lighting inside the page background so it never layers over content. */
+.studio-page{background-color:var(--paper);background-image:radial-gradient(ellipse at 82% 4%,rgba(8,107,255,.075),transparent 33%),radial-gradient(ellipse at 10% 24%,rgba(8,107,255,.04),transparent 28%);background-repeat:no-repeat;background-size:100% 900px,100% 760px}
+.studio-page:before{display:none}
