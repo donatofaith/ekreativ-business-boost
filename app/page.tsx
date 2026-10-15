@@ -1,5 +1,5 @@
 import Image from "next/image";
-import NewsletterForm from "./NewsletterForm";
+import NewsletterForm from "./NewsletterForm"; // newsletter signup component
 import ScrollMotion from "./ScrollMotion"; // client-side scroll reveal animations
 import "./landing.css";
 
