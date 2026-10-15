@@ -1,5 +1,6 @@
 import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
+import ScrollMotion from "./ScrollMotion";
 import "./landing.css";
 
 const deliverables = [
@@ -80,6 +81,7 @@ export default function Home() {
 
   return (
     <main className="studio-page" id="top">
+      <ScrollMotion />
       <header className="studio-header">
         <a className="studio-wordmark studio-wordmark-image" href="#top" aria-label="Eximius Kreativ Solutions home">
           <Image src="/eximius-kreativ-logo.svg" alt="Eximius Kreativ Solutions" width={230} height={63} priority />
@@ -122,7 +124,7 @@ export default function Home() {
         </div>
         <div className="studio-work-marquee" aria-label="Selected work samples">
           <div className="studio-work-track">
-            {workSamples.map((item, index) => (
+            {[...workSamples, ...workSamples].map((item, index) => (
               <a
                 className="studio-work-card"
                 href={item.image}
@@ -219,8 +221,8 @@ export default function Home() {
 
       <footer className="studio-footer">
         <a className="studio-wordmark studio-wordmark-footer studio-wordmark-image" href="#top" aria-label="Eximius Kreativ Solutions home"><span className="studio-footer-brand">Eximius<br />Kreativ Solutions</span></a>
-        <a href="mailto:ekreativsolutions@gmail.com">ekreativsolutions@gmail.com</a>
-        <a href="#newsletter">Join our mailing list</a>
+        <a className="studio-footer-contact" href="mailto:ekreativsolutions@gmail.com"><small>CONTACT US</small>ekreativsolutions@gmail.com</a>
+        <a className="studio-footer-newsletter" href="#newsletter"><small>FREE BUSINESS TIPS</small>Get updates by email ↗</a>
         <span>© 2026 Eximius Kreativ Solutions</span>
       </footer>
       <div className="studio-mobile-cta"><a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp · ₦100,000 <span>↗</span></a></div>
