@@ -346,3 +346,27 @@
 .studio-work-track{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}.studio-work-card{min-width:0!important;width:auto!important}.studio-work-thumb,.studio-work-card-2 .studio-work-thumb,.studio-work-card-3 .studio-work-thumb,.studio-work-card-4 .studio-work-thumb,.studio-work-card-5 .studio-work-thumb{height:clamp(160px,52vw,240px)!important}
 .studio-newsletter{padding:54px 20px!important}.studio-newsletter-fields{flex-direction:column}.studio-newsletter-fields button{width:100%}.studio-footer{padding-bottom:80px!important}}
 @media(prefers-reduced-motion:reduce){.studio-work-card{transition:none!important}}
+
+
+/* Glass details, scroll reveals, and a truly continuous work marquee */
+.studio-header{background:rgba(255,255,255,.72)!important;border:1px solid rgba(255,255,255,.82)!important;box-shadow:0 14px 40px rgba(23,48,83,.10),inset 0 1px 0 rgba(255,255,255,.88)!important;-webkit-backdrop-filter:blur(22px) saturate(155%)!important;backdrop-filter:blur(22px) saturate(155%)!important}
+.studio-nav-cta,.studio-button-dark,.studio-button-light,.studio-price-card,.studio-reel-card,.studio-work-card,.studio-deliverable-tag{transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease,background .28s ease!important}
+.studio-price-card{box-shadow:0 14px 34px rgba(28,45,67,.08)!important}
+.studio-price-card:hover,.studio-reel-card:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(28,45,67,.12)!important}
+.studio-hero-image{box-shadow:0 22px 50px rgba(28,45,67,.20)!important}
+.studio-art-stamp{box-shadow:0 12px 30px rgba(23,77,152,.25)!important}
+.studio-mobile-cta{background:rgba(255,255,255,.76)!important;-webkit-backdrop-filter:blur(20px) saturate(150%)!important;backdrop-filter:blur(20px) saturate(150%)!important}
+.studio-work-marquee{overflow:hidden!important;mask-image:linear-gradient(to right,transparent 0,#000 3%,#000 97%,transparent 100%)!important}
+.studio-work-track{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-start!important;gap:18px!important;width:max-content!important;animation:ekWorkFlow 34s linear infinite!important;will-change:transform!important}
+.studio-work-card{flex:0 0 260px!important;width:260px!important;max-width:260px!important;min-width:260px!important}
+.studio-work-marquee:hover .studio-work-track,.studio-work-marquee:focus-within .studio-work-track{animation-play-state:paused!important}
+@keyframes ekWorkFlow{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 9px))}}
+.studio-footer{display:grid!important;grid-template-columns:1.1fr 1fr 1fr auto!important;align-items:center!important;gap:24px!important}
+.studio-footer-contact,.studio-footer-newsletter{display:flex!important;flex-direction:column!important;gap:5px!important;text-decoration:none!important;font-size:12px!important;font-weight:700!important}
+.studio-footer-contact small,.studio-footer-newsletter small{font-size:8px!important;letter-spacing:.14em!important;color:#174d98!important}
+.studio-footer-contact:hover,.studio-footer-newsletter:hover{color:#174d98!important}
+.studio-reveal{opacity:0;transform:translate3d(0,24px,0);transition:opacity .72s cubic-bezier(.2,.7,.2,1),transform .72s cubic-bezier(.2,.7,.2,1);transition-delay:var(--reveal-delay,0ms)}
+.studio-reveal.is-visible{opacity:1;transform:translate3d(0,0,0)}
+@media(max-width:900px){.studio-footer{grid-template-columns:1fr 1fr!important}.studio-footer>span{grid-column:1/-1}}
+@media(max-width:700px){.studio-work-track{animation-duration:29s!important}.studio-work-card{flex-basis:76vw!important;width:76vw!important;min-width:76vw!important;max-width:76vw!important}.studio-footer{grid-template-columns:1fr!important;gap:17px!important}.studio-footer>span{grid-column:auto}.studio-footer-contact,.studio-footer-newsletter{font-size:11px!important}}
+@media(prefers-reduced-motion:reduce){.studio-reveal,.studio-reveal.is-visible{opacity:1!important;transform:none!important;transition:none!important}.studio-work-track{animation:none!important;transform:none!important}}
