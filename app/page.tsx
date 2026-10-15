@@ -1,6 +1,6 @@
 import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
-import ScrollMotion from "./ScrollMotion";
+import ScrollMotion from "./ScrollMotion"; // client-side scroll reveal animations
 import "./landing.css";
 
 const deliverables = [
