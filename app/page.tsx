@@ -219,10 +219,7 @@ export default function Home() {
         <div className="studio-close-orbit" aria-hidden="true">EK</div>
       </section>
 
-      <footer className="studio-footer">
-        <a className="studio-wordmark studio-wordmark-footer studio-wordmark-image" href="#top" aria-label="Eximius Kreativ Solutions home"><span className="studio-footer-brand">Eximius<br />Kreativ Solutions</span></a>
-        <a className="studio-footer-contact" href="mailto:ekreativsolutions@gmail.com"><small>CONTACT US</small>ekreativsolutions@gmail.com</a>
-        <a className="studio-footer-newsletter" href="#newsletter"><small>FREE BUSINESS TIPS</small>Get updates by email ↗</a>
+      <footer className="studio-footer studio-footer-copyright">
         <span>© 2026 Eximius Kreativ Solutions</span>
       </footer>
       <div className="studio-mobile-cta"><a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp · ₦100,000 <span>↗</span></a></div>
