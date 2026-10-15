@@ -1,4 +1,5 @@
 import Image from "next/image";
+import NewsletterForm from "./NewsletterForm";
 import "./landing.css";
 
 const deliverables = [
@@ -79,30 +80,28 @@ export default function Home() {
 
   return (
     <main className="studio-page" id="top">
-      <div className="studio-ribbon"><span>EXIMIUS KREATIV SOLUTIONS</span><span>ONE CREATIVE KIT · ₦100,000</span></div>
-
       <header className="studio-header">
         <a className="studio-wordmark studio-wordmark-image" href="#top" aria-label="Eximius Kreativ Solutions home">
           <Image src="/eximius-kreativ-logo.svg" alt="Eximius Kreativ Solutions" width={230} height={63} priority />
         </a>
         <nav aria-label="Main navigation">
-          <a href="#work">The work</a>
+          <a href="#work">Our work</a>
           <a href="#package">What you get</a>
-          <a href="#steps">How it works</a>
+          <a href="#steps">How to order</a>
         </nav>
         <a className="studio-nav-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp <span>↗</span></a>
       </header>
 
       <section className="studio-hero">
         <div className="studio-hero-copy">
-          <p className="studio-eyebrow"><span className="studio-pulse" /> THE ₦100K BUSINESS BOOST</p>
+          <p className="studio-eyebrow"><span className="studio-pulse" /> THE BUSINESS BOOST PACKAGE</p>
           <h1>Give customers more reasons to choose your business.</h1>
-          <p className="studio-lede">Get a promotional video, 4 social media designs, a WhatsApp flyer, 2 sales captions and a page where customers can view your offer and contact you—all for ₦100,000.</p>
+          <p className="studio-lede">Get a 60-second promotional video, 4 social media designs, a WhatsApp flyer, 2 sales captions and a page where customers can view your offer and contact you — all for <strong>₦100,000.</strong></p>
           <div className="studio-hero-actions">
             <a className="studio-button studio-button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp — ₦100,000 <span>↗</span></a>
             <a className="studio-scroll-link" href="#work"><span className="studio-play-mark">▶</span> See examples of our work</a>
           </div>
-          <p className="studio-delivery-note">Package price: ₦100,000 <span>·</span> Ask us to confirm the delivery timeline before ordering.</p>
+          <p className="studio-delivery-note">We’ll confirm your requirements, payment terms and delivery schedule before work begins.</p>
         </div>
 
         <div className="studio-hero-art" aria-label="Recent creative work for Eximius clients">
@@ -121,17 +120,15 @@ export default function Home() {
           <div><p className="studio-eyebrow">SELECTED WORK</p><h2>See examples of<br />our work<span>.</span></h2></div>
           <p>Browse our designs. Watch the videos.</p>
         </div>
-        <div className="studio-work-marquee" aria-label="Gallery of selected work">
+        <div className="studio-work-marquee" aria-label="Selected work samples">
           <div className="studio-work-track">
-            {[...workSamples, ...workSamples].map((item, index) => (
+            {workSamples.map((item, index) => (
               <a
                 className="studio-work-card"
                 href={item.image}
                 target="_blank"
                 rel="noreferrer"
                 key={`${item.name}-${index}`}
-                aria-hidden={index >= workSamples.length ? true : undefined}
-                tabIndex={index >= workSamples.length ? -1 : undefined}
               >
                 <div className="studio-work-thumb">
                   <Image src={item.image} alt={item.alt} width={1000} height={1250} sizes="(max-width: 700px) 72vw, 300px" />
@@ -145,7 +142,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="studio-reel-heading"><div><p className="studio-eyebrow">PRESS PLAY</p><h3>Good work moves.</h3></div><p>These are website showcases, not examples of the 60-second promotional video included in the package.</p></div>
+        <div className="studio-reel-heading"><div><p className="studio-eyebrow">PRESS PLAY</p><h3>Good work moves.</h3></div><p>These are website showcases. A sample of the included 60-second promotional video will be added when available.</p></div>
         <div className="studio-reel-grid">
           {videoDemos.map((demo, index) => (
             <article className="studio-reel-card" key={demo.title}>
@@ -164,11 +161,11 @@ export default function Home() {
 
       <section className="studio-package" id="package">
         <div className="studio-package-intro">
-          <p className="studio-eyebrow">THE COMPLETE CREATIVE KIT</p>
+          <p className="studio-eyebrow">THE ₦100,000 PACKAGE</p>
           <h2>Here’s what you get</h2>
-          <p>Five useful promotional materials for one clear package price.</p>
+          <p>Five types of promotional materials, made to help you explain your offer and make it easier for customers to contact you.</p>
           <div className="studio-price-card"><span>ONE COMPLETE PACKAGE</span><strong>₦100,000</strong><small>All five deliverables included</small><a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp ↗</a></div>
-          <p className="studio-cost-note">Ad spend, domain and hosting are not included. Ask us how your sales page will go live and whether any ongoing costs apply.</p>
+          <p className="studio-cost-note">Advertising, domain registration and hosting are not included. We’ll explain how your sales page can go live and confirm any extra or recurring costs before you order.</p>
         </div>
         <div className="studio-deliverable-list">
           {deliverables.map((item) => (
@@ -189,7 +186,7 @@ export default function Home() {
       </section>
 
       <section className="studio-faq" id="faq">
-        <div className="studio-faq-lead"><p className="studio-eyebrow">BEFORE YOU SAY HELLO</p><h2>A few things<br />you might ask<span>.</span></h2><a href={whatsappUrl} target="_blank" rel="noreferrer">Ask us on WhatsApp ↗</a></div>
+        <div className="studio-faq-lead"><p className="studio-eyebrow">BEFORE YOU SAY HELLO</p><h2>A few things<br />you might ask<span>.</span></h2><a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp ↗</a></div>
         <div className="studio-faq-list">
           <details><summary>Is this right for my kind of business?</summary><p>It’s built for businesses with a specific product, service or offer to promote. Tell us what you do and who you want to reach; we’ll confirm it’s a good fit before you book.</p></details>
           <details><summary>When does the 72-hour delivery start?</summary><p>Once we have your onboarding materials and have confirmed the brief. We’ll agree on the start time and schedule with you before work begins.</p></details>
@@ -203,6 +200,15 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="studio-newsletter" id="newsletter">
+        <div className="studio-newsletter-copy">
+          <p className="studio-eyebrow">OCCASIONAL BUSINESS TIPS</p>
+          <h2>Useful ideas for<br /><em>your next move.</em></h2>
+          <p>Get practical marketing tips, business updates and new offers from Eximius Kreativ Solutions. No spam, and you can unsubscribe at any time.</p>
+        </div>
+        <NewsletterForm />
+      </section>
+
       <section className="studio-close">
         <p className="studio-eyebrow">YOUR BUSINESS IS READY FOR ITS CLOSE-UP</p>
         <h2>Ready to promote<br /><em>your business?</em></h2>
@@ -214,6 +220,7 @@ export default function Home() {
       <footer className="studio-footer">
         <a className="studio-wordmark studio-wordmark-footer studio-wordmark-image" href="#top" aria-label="Eximius Kreativ Solutions home"><span className="studio-footer-brand">Eximius<br />Kreativ Solutions</span></a>
         <a href="mailto:ekreativsolutions@gmail.com">ekreativsolutions@gmail.com</a>
+        <a href="#newsletter">Join our mailing list</a>
         <span>© 2026 Eximius Kreativ Solutions</span>
       </footer>
       <div className="studio-mobile-cta"><a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp · ₦100,000 <span>↗</span></a></div>
