@@ -6,7 +6,7 @@ export default function ScrollMotion() {
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const targets = document.querySelectorAll<HTMLElement>(
-      ".studio-hero-copy, .studio-hero-art, .studio-section-head, .studio-work-card, .studio-reel-card, .studio-package-intro, .studio-deliverable, .studio-step, .studio-faq-lead, .studio-faq-list details, .studio-newsletter-copy, .studio-newsletter-form, .studio-close > *"
+      ".studio-hero-copy, .studio-hero-art, .studio-section-head, .studio-testimonial-card, .studio-work-card, .studio-reel-card, .studio-package-intro, .studio-deliverable, .studio-step, .studio-faq-lead, .studio-faq-list details, .studio-newsletter-copy, .studio-newsletter-form, .studio-close > *"
     );
     if (reduceMotion || !("IntersectionObserver" in window)) return;
 
