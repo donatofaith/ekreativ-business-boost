@@ -161,28 +161,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="studio-testimonials" id="reviews">
-        <div className="studio-section-head studio-testimonials-head">
-          <div>
-            <p className="studio-eyebrow">KIND WORDS, REAL CLIENT</p>
-            <h2>Don’t just take<br />our word for it<span>.</span></h2>
-          </div>
-          <p>We care about making every part of your business promotion feel worth it.</p>
-        </div>
-        <article className="studio-testimonial-card">
-          <div className="studio-testimonial-mark" aria-hidden="true">“</div>
-          <div className="studio-testimonial-content">
-            <div className="studio-testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>Wow, I really love everything in the package! The designs, video and landing page are so on point. Thank you so much—this is really worth the price. I’m excited to start using them for my business!</blockquote>
-            <div className="studio-testimonial-author">
-              <span className="studio-testimonial-avatar" aria-hidden="true">Z</span>
-              <div><strong>Zenit</strong><small>Business promotion package client</small></div>
-              <span className="studio-testimonial-verified">CLIENT REVIEW</span>
-            </div>
-          </div>
-        </article>
-      </section>
-
       <section className="studio-package" id="package">
         <div className="studio-package-intro">
           <p className="studio-eyebrow">THE ₦100,000 PACKAGE</p>
@@ -199,6 +177,54 @@ export default function Home() {
               <span className="studio-deliverable-tag">{item.tag}</span>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="studio-testimonials" id="reviews">
+        <div className="studio-section-head studio-testimonials-head">
+          <div>
+            <p className="studio-eyebrow">KIND WORDS, REAL CLIENTS</p>
+            <h2>Don’t just take<br />our word for it<span>.</span></h2>
+          </div>
+          <p>Real feedback from businesses we’ve helped bring their ideas to life.</p>
+        </div>
+        <div className="studio-testimonials-grid">
+          <article className="studio-testimonial-card">
+            <div className="studio-testimonial-mark" aria-hidden="true">“</div>
+            <div className="studio-testimonial-content">
+              <div className="studio-testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>Wow, I really love everything in the package! The designs, video and landing page are so on point. Thank you so much—this is really worth the price. I’m excited to start using them for my business!</blockquote>
+              <div className="studio-testimonial-author">
+                <span className="studio-testimonial-avatar" aria-hidden="true">Z</span>
+                <div><strong>Zenit</strong><small>Business promotion package</small></div>
+                <span className="studio-testimonial-verified">CLIENT REVIEW</span>
+              </div>
+            </div>
+          </article>
+          <article className="studio-testimonial-card">
+            <div className="studio-testimonial-mark" aria-hidden="true">“</div>
+            <div className="studio-testimonial-content">
+              <div className="studio-testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>Ah, this is clean. You really got the colors I wanted. I love it.</blockquote>
+              <div className="studio-testimonial-author">
+                <span className="studio-testimonial-avatar" aria-hidden="true">T</span>
+                <div><strong>Tolu Food Brands</strong><small>Brand design client</small></div>
+                <span className="studio-testimonial-verified">CLIENT REVIEW</span>
+              </div>
+            </div>
+          </article>
+          <article className="studio-testimonial-card">
+            <div className="studio-testimonial-mark" aria-hidden="true">“</div>
+            <div className="studio-testimonial-content">
+              <div className="studio-testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>This is really nice 🔥 The video captures what my food business is about perfectly. I can’t wait to post it.</blockquote>
+              <div className="studio-testimonial-author">
+                <span className="studio-testimonial-avatar" aria-hidden="true">N</span>
+                <div><strong>Naya Bites</strong><small>Promotional video client</small></div>
+                <span className="studio-testimonial-verified">CLIENT REVIEW</span>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
