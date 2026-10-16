@@ -396,3 +396,35 @@
 .studio-testimonial-card:nth-child(3){margin-left:clamp(0px,8vw,84px);width:calc(100% - clamp(0px,8vw,84px))}
 .studio-testimonial-card.studio-reveal{transition:opacity .72s cubic-bezier(.2,.7,.2,1),transform .72s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease;transition-delay:var(--reveal-delay,0ms)}
 @media(max-width:700px){.studio-testimonial-card:nth-child(2),.studio-testimonial-card:nth-child(3){margin-left:0;width:100%}}
+
+
+/* Modern one-review-at-a-time carousel */
+.studio-testimonials{padding:clamp(68px,9vw,112px) clamp(20px,8vw,124px);background:radial-gradient(ellipse at 15% 5%,rgba(34,111,190,.09),transparent 42%),#f6f8fb;border-top:1px solid #e5ebf2;border-bottom:1px solid #e5ebf2}
+.studio-testimonials-inner{max-width:980px;margin:0 auto}
+.studio-testimonials-heading{margin:0 0 30px}
+.studio-testimonials-heading .studio-eyebrow{margin:0 0 12px;color:#174d98;font-size:10px;font-weight:800;letter-spacing:.16em}
+.studio-testimonials-heading h2{margin:0;color:#182435;font:700 clamp(32px,5vw,54px)/1.08 'Space Grotesk',sans-serif;letter-spacing:-.055em}
+.studio-testimonials-heading h2 span{color:#ef8d45}
+.studio-testimonial-stage{position:relative;min-height:285px;padding:clamp(24px,5vw,48px);overflow:hidden;border:1px solid rgba(255,255,255,.9);border-radius:26px;background:rgba(255,255,255,.72);box-shadow:0 24px 70px rgba(24,50,82,.09),inset 0 1px 0 #fff;-webkit-backdrop-filter:blur(22px) saturate(145%);backdrop-filter:blur(22px) saturate(145%)}
+.studio-testimonial-slide{animation:studioReviewEnter .55s cubic-bezier(.2,.7,.2,1) both}
+@keyframes studioReviewEnter{from{opacity:0;transform:translateY(14px) scale(.99);filter:blur(4px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+.studio-testimonial-topline{display:flex;align-items:center;justify-content:space-between}
+.studio-testimonial-quote-mark{font:700 72px/.7 Georgia,serif;color:#174d98;opacity:.85}
+.studio-testimonial-stars{font-size:13px;letter-spacing:.16em;color:#e49a30}
+.studio-testimonial-slide blockquote{max-width:760px;margin:25px 0 32px;color:#253244;font:500 clamp(21px,3vw,32px)/1.45 'Space Grotesk',sans-serif;letter-spacing:-.035em}
+.studio-testimonial-author{display:flex;align-items:center;gap:12px;padding-top:20px;border-top:1px solid #e6ebf1}
+.studio-testimonial-avatar{width:44px;height:44px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;background:linear-gradient(145deg,#1a5ba5,#123c77);color:#fff;font:700 17px 'Space Grotesk',sans-serif}
+.studio-testimonial-author-text{display:flex;flex-direction:column;gap:4px}
+.studio-testimonial-author-text strong{font:700 13px 'Space Grotesk',sans-serif;color:#202b39}
+.studio-testimonial-author-text small{font-size:10px;color:#718094}
+.studio-testimonial-count{margin-left:auto;font-size:12px;font-weight:800;color:#174d98;font-variant-numeric:tabular-nums}
+.studio-testimonial-count i{padding:0 5px;color:#a8b4c2;font-style:normal}
+.studio-testimonial-controls{display:flex;align-items:center;justify-content:space-between;margin-top:20px}
+.studio-testimonial-dots{display:flex;align-items:center;gap:8px}
+.studio-testimonial-dot{width:7px;height:7px;padding:0;border:0;border-radius:99px;background:#c7d2df;cursor:pointer;transition:width .25s ease,background .25s ease}
+.studio-testimonial-dot.is-active{width:26px;background:#174d98}
+.studio-testimonial-arrows{display:flex;gap:8px}
+.studio-testimonial-arrows button{width:42px;height:42px;border:1px solid #dce4ed;border-radius:50%;background:rgba(255,255,255,.75);color:#174d98;font-size:20px;cursor:pointer;transition:transform .2s ease,background .2s ease}
+.studio-testimonial-arrows button:hover{transform:translateY(-2px);background:#fff}
+@media(max-width:600px){.studio-testimonials{padding:64px 18px}.studio-testimonials-heading{margin-bottom:24px}.studio-testimonial-stage{min-height:300px;padding:24px 20px;border-radius:20px}.studio-testimonial-slide blockquote{font-size:22px;margin:22px 0 28px}.studio-testimonial-author{gap:10px}.studio-testimonial-author-text small{max-width:155px}.studio-testimonial-count{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.studio-testimonial-slide{animation:none}}
