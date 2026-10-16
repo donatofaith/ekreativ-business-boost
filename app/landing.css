@@ -370,3 +370,19 @@
 @media(max-width:900px){.studio-footer{grid-template-columns:1fr 1fr!important}.studio-footer>span{grid-column:1/-1}}
 @media(max-width:700px){.studio-work-track{animation-duration:29s!important}.studio-work-card{flex-basis:76vw!important;width:76vw!important;min-width:76vw!important;max-width:76vw!important}.studio-footer{grid-template-columns:1fr!important;gap:17px!important}.studio-footer>span{grid-column:auto}.studio-footer-contact,.studio-footer-newsletter{font-size:11px!important}}
 @media(prefers-reduced-motion:reduce){.studio-reveal,.studio-reveal.is-visible{opacity:1!important;transform:none!important;transition:none!important}.studio-work-track{animation:none!important;transform:none!important}}
+
+
+/* Client testimonial */
+.studio-testimonials{padding:92px clamp(18px,8vw,124px);background:#f0f4f8;border-top:1px solid #e0e7ef;border-bottom:1px solid #e0e7ef}
+.studio-testimonials-head{margin-bottom:34px}
+.studio-testimonial-card{position:relative;display:grid;grid-template-columns:90px minmax(0,1fr);gap:24px;max-width:980px;margin:0 auto;padding:clamp(24px,4vw,46px);overflow:hidden;border:1px solid rgba(255,255,255,.9);border-radius:22px;background:rgba(255,255,255,.76);box-shadow:0 22px 70px rgba(23,53,88,.09),inset 0 1px 0 #fff;-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%)}
+.studio-testimonial-mark{width:78px;height:78px;display:grid;place-items:center;border-radius:22px;background:linear-gradient(145deg,#e2f4ff,#f5f9ff);color:#174d98;font:700 82px/.95 Georgia,serif;padding-top:15px}
+.studio-testimonial-stars{color:#e49a30;font-size:15px;letter-spacing:.18em}
+.studio-testimonial-content blockquote{max-width:760px;margin:17px 0 27px;color:#263242;font:500 clamp(19px,2.2vw,27px)/1.55 'Space Grotesk',sans-serif;letter-spacing:-.025em}
+.studio-testimonial-author{display:flex;align-items:center;gap:12px;padding-top:19px;border-top:1px solid #e5eaf0}
+.studio-testimonial-avatar{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;background:#174d98;color:#fff;font:700 19px 'Space Grotesk',sans-serif}
+.studio-testimonial-author>div{display:flex;flex-direction:column;gap:4px}
+.studio-testimonial-author strong{font:700 14px 'Space Grotesk',sans-serif;color:#202b39}
+.studio-testimonial-author small{font-size:10px;color:#6f7d8d}
+.studio-testimonial-verified{margin-left:auto;padding:8px 10px;border:1px solid #d9e5f2;border-radius:99px;color:#174d98;font-size:8px;font-weight:800;letter-spacing:.12em}
+@media(max-width:700px){.studio-testimonials{padding:68px 20px}.studio-testimonial-card{grid-template-columns:1fr;gap:15px;padding:22px;border-radius:17px}.studio-testimonial-mark{width:54px;height:54px;border-radius:16px;font-size:60px;padding-top:11px}.studio-testimonial-content blockquote{font-size:19px;line-height:1.55;margin:13px 0 22px}.studio-testimonial-author{flex-wrap:wrap}.studio-testimonial-verified{font-size:7px;padding:7px 8px}}
